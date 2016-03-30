@@ -10,6 +10,13 @@ namespace MegaProduction
     {
         #region Fields
         private string _Libelle;
+        private string _Telephone;
+        private string _Email;
+        private string _Adresse;
+        private string _Siret;
+        private string _URL;
+        private string _Fax;
+        private bool _IsDiffuseur;
 
         #endregion
 

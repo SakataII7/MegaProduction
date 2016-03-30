@@ -1,0 +1,57 @@
+﻿<Window x:Class="MegaProduction.InformationClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Informations Client" Height="350" Width="450">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" ></ColumnDefinition>
+            <ColumnDefinition Width="100" ></ColumnDefinition>
+            <ColumnDefinition Width="200" ></ColumnDefinition>
+            <ColumnDefinition Width="50*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*" ></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Libelle*: "></TextBlock>
+        <TextBlock  Grid.Row="2" Grid.Column="1" Text="Telephone: "></TextBlock>
+        <TextBlock  Grid.Row="3" Grid.Column="1" Text="Email: "></TextBlock>
+        <TextBlock  Grid.Row="4" Grid.Column="1" Text="Adresse*: "></TextBlock>
+        <TextBlock  Grid.Row="5" Grid.Column="1" Text="Siret*: "></TextBlock>
+        <TextBlock  Grid.Row="6" Grid.Column="1" Text="URL: "></TextBlock>
+        <TextBlock  Grid.Row="7" Grid.Column="1" Text="Fax: "></TextBlock>
+        <TextBlock  Grid.Row="8" Grid.Column="1" Text="Est Diffuseur: "></TextBlock>
+
+        <TextBox x:Name="TXT_Libelle" Grid.Row="1" Grid.Column="2" Margin="2"></TextBox>
+        <TextBox x:Name="TXT_Telephone" Grid.Row="2" Grid.Column="2" Margin="2"></TextBox>
+        <TextBox x:Name="TXT_Email" Grid.Row="3" Grid.Column="2" Margin="2"></TextBox>
+        <TextBox x:Name="TXT_Adresse" Grid.Row="4" Grid.Column="2" Margin="2"></TextBox>
+        <TextBox x:Name="TXT_Siret" Grid.Row="5" Grid.Column="2" Margin="2"></TextBox>
+        <TextBox x:Name="TXT_URL" Grid.Row="6" Grid.Column="2" Margin="2"></TextBox>
+        <TextBox x:Name="TXT_Fax" Grid.Row="7" Grid.Column="2" Margin="2"></TextBox>
+        <StackPanel  Grid.Row="8" Grid.Column="2" Margin="2">
+            <ComboBox Name="Combo_IsDiffuseur">
+                <ComboBoxItem>NON</ComboBoxItem>
+                <ComboBoxItem>OUI</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="4"
+                        Orientation="Horizontal" 
+                        FlowDirection="RightToLeft" 
+                        VerticalAlignment="Bottom">
+            <Button  x:Name="BTN_Cancel" Content="Annuler" Margin="2" Click="BTN_Cancel_Click"></Button>
+            <Button  x:Name="BTN_Ok" Content="OK" Margin="2" Click="BTN_Ok_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
