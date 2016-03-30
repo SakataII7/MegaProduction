@@ -29,7 +29,7 @@ public class ConnexionBDD
         try
         {
             String url = "jdbc:jtds:sqlserver://PC-ALEXANDRE:1433/MegaCastings";
-            //String url = "jdbc:jtds:sqlserver://PC-Valentin:1433/MegaCastings"; Test pour me connecter sur une autre BDD
+            //String url = "jdbc:jtds:sqlserver://PC-Valentin:1433/MegaCastings"
             
             String login = "sa";
             String mdp = "admin";
