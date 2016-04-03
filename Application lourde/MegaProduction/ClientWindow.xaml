@@ -17,5 +17,14 @@
                 <MenuItem x:Name="MN_Fermer" Click="MN_Fermer_Click" Header="Fermer"></MenuItem>
             </MenuItem>
         </Menu>
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding Clients}" x:Name="listClients">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Libelle}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
     </Grid>
 </Window>

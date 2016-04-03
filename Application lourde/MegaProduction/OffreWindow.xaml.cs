@@ -20,7 +20,7 @@ namespace MegaProduction
     /// </summary>
     public partial class OffreWindow : Window
     {
-        public OffreWindow(MegaCastingsEntities context)
+        public OffreWindow(MegaCastingsEntities1 context)
         {
             InitializeComponent();
         }

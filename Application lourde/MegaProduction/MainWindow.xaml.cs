@@ -21,7 +21,7 @@ namespace MegaProduction
     /// </summary>
     public partial class MainWindow : Window
     {
-        MegaCastingsEntities db = new MegaCastingsEntities();
+        MegaCastingsEntities1 db = new MegaCastingsEntities1();
 
         public MainWindow()
         {
@@ -67,5 +67,11 @@ namespace MegaProduction
 
             }
         }
+
+        private void Domaine_Metier_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

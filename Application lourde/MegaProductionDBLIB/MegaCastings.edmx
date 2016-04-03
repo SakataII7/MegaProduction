@@ -328,7 +328,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MegaCastingsEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MegaCastingsEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clients" EntityType="Self.Client" />
           <EntitySet Name="Connexions" EntityType="Self.Connexion" />
           <EntitySet Name="DomaineMetiers" EntityType="Self.DomaineMetier" />
@@ -365,7 +365,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MegaCastingsModelStoreContainer" CdmEntityContainer="MegaCastingsEntities">
+        <EntityContainerMapping StorageEntityContainer="MegaCastingsModelStoreContainer" CdmEntityContainer="MegaCastingsEntities1">
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="MegaCastingsModel.Client">
               <MappingFragment StoreEntitySet="Client">

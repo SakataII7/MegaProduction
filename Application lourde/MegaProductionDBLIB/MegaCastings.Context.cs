@@ -13,10 +13,10 @@ namespace MegaProductionDBLIB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MegaCastingsEntities : DbContext
+    public partial class MegaCastingsEntities1 : DbContext
     {
-        public MegaCastingsEntities()
-            : base("name=MegaCastingsEntities")
+        public MegaCastingsEntities1()
+            : base("name=MegaCastingsEntities1")
         {
         }
     

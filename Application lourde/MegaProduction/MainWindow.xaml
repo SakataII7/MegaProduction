@@ -4,23 +4,27 @@
         Title="MainWindow" Height="600" Width="1000">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="25*"/>
-            <RowDefinition Height="25*"/>
-            <RowDefinition Height="25*"/>
-            <RowDefinition Height="25*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Button Padding="5" x:Name="btn_client" Click="Client_Click">Client</Button>
+            <Button Padding="5" x:Name="btn_client" Click="Client_Click">Clients</Button>
         </Grid>
         <Grid Grid.Row="1">
-            <Button Padding="5" x:Name="btn_offre" Click="Offre_Click">Offre</Button>
+            <Button Padding="5" x:Name="btn_offre" Click="Offre_Click">Offres</Button>
         </Grid>
         <Grid Grid.Row="2">
-            <Button Padding="5" x:Name="btn_pack" Click="Pack_Click">Pack</Button>
+            <Button Padding="5" x:Name="btn_pack" Click="Pack_Click">Packs</Button>
         </Grid>
         <Grid Grid.Row="3">
-            <Button Padding="5" x:Name="btn_partenaire" Click="Partenaire_Click">Partenaire</Button>
+            <Button Padding="5" x:Name="btn_partenaire" Click="Partenaire_Click">Partenaires</Button>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Button Padding="5" x:Name="btn_domaine_metier" Click="Domaine_Metier_Click">Domaines/Métiers</Button>
         </Grid>
     </Grid>
 </Window>

@@ -20,9 +20,37 @@ namespace MegaProduction
     /// </summary>
     public partial class PartenaireWindow : Window
     {
-        public PartenaireWindow(MegaCastingsEntities context)
+        MegaCastingsEntities1 db = new MegaCastingsEntities1();
+
+        public PartenaireWindow(MegaCastingsEntities1 context)
         {
             InitializeComponent();
+        }
+
+        private void MN_Ajouter_Click(object sender, RoutedEventArgs e)
+        {
+            InformationPartenaireWindow informationPartenaireWindow = new InformationPartenaireWindow(db);
+
+            if (informationPartenaireWindow.ShowDialog() == true)
+            {
+                db.Clients.Add(informationPartenaireWindow.Client);
+                db.SaveChanges();
+            }
+        }
+
+        private void MN_Modifier_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MN_Supprimer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MN_Fermer_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

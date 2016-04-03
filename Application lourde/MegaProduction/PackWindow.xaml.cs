@@ -21,7 +21,7 @@ namespace MegaProduction
     /// </summary>
     public partial class PackWindow : Window
     {
-        public PackWindow(MegaCastingsEntities context)
+        public PackWindow(MegaCastingsEntities1 context)
         {
             InitializeComponent();
         }

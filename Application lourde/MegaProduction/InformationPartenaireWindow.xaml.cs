@@ -16,21 +16,20 @@ using MegaProductionDBLIB;
 namespace MegaProduction
 {
     /// <summary>
-    /// Logique d'interaction pour InformationClientWindow.xaml
+    /// Logique d'interaction pour InformationPartenaireWindow.xaml
     /// </summary>
-    public partial class InformationClientWindow : Window
+    public partial class InformationPartenaireWindow : Window
     {
         private MegaCastingsEntities1 db;
         public Client Client { get; set; }
 
-        public InformationClientWindow(MegaCastingsEntities1 context)
+        public InformationPartenaireWindow(MegaCastingsEntities1 context)
         {
             InitializeComponent();
             db = context;
             this.Client = new Client();
 
             this.DataContext = this;
-       
         }
 
         private void BTN_Cancel_Click(object sender, RoutedEventArgs e)
@@ -40,7 +39,7 @@ namespace MegaProduction
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
-            this.Client.IsDiffuseur = false;            
+            this.Client.IsDiffuseur = true;
             this.DialogResult = true;
         }
     }
