@@ -28,11 +28,11 @@ public class ConnexionBDD
             Connection cnx = null;  
         try
         {
-            String url = "jdbc:jtds:sqlserver://PC-ALEXANDRE:1433/MegaCastings";
-            //String url = "jdbc:jtds:sqlserver://PC-Valentin:1433/MegaCastings"
+            //String url = "jdbc:jtds:sqlserver://PC-Valentin:1433/MegaCastings";
+            String url = "jdbc:jtds:sqlserver://PC-ALEXANDRE:50771/MegaCastings";
             
             String login = "sa";
-            String mdp = "admin";
+            String mdp = "ftFqcxziz";
 
             cnx = DriverManager.getConnection(url, login, mdp);
             System.out.println("Connexion établie");

@@ -1,0 +1,19 @@
+<form id='ListOffre' action="listOffre" method="post">
+            <div>
+                <input type="hidden" name="offre" id="offre"/>
+                <% List<String> Nomoffre = (List<String>) request.getAttribute("nomoffre"); 
+                   List<Long> IDoffre = (List<Long>) request.getAttribute("idoffre");
+                   List<Date> Datepublication = (List<Date>) request.getAttribute("publicationoffre"); 
+                   List<Date> Debutcontrat = (List<Date>) request.getAttribute("debutcontrat"); 
+                   List<Long> Nbpostes = (List<Long>) request.getAttribute("nbpostes");
+                   int i = 0;
+                %>
+
+                <%while(i < Nomoffre.size()){ %>                    
+                    <button type="button" onclick="document.getElementById('offre').value = '<%=IDoffre.get(i)%>'; document.getElementById('listOffre').submit();">
+                            <%=Nomoffre.get(i)%>
+                    </button> 
+                <% i++;} %>
+                test
+            </div>
+        </form>
