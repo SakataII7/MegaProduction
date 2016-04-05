@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MegaProductionDBLIB;
+using System.Collections.ObjectModel;
 
 namespace MegaProduction
 {
@@ -20,15 +21,16 @@ namespace MegaProduction
     /// </summary>
     public partial class InformationClientWindow : Window
     {
-        private MegaCastingsEntities1 db;
+        private MegaCastingsEntities db;
         public Client Client { get; set; }
+        public ObservableCollection<Pack> Packs { get; set; }
 
-        public InformationClientWindow(MegaCastingsEntities1 context)
+        public InformationClientWindow(MegaCastingsEntities context)
         {
             InitializeComponent();
             db = context;
             this.Client = new Client();
-
+            this.Packs = new ObservableCollection<Pack>(db.Packs.ToList());
             this.DataContext = this;
        
         }
@@ -40,7 +42,9 @@ namespace MegaProduction
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
-            this.Client.IsDiffuseur = false;            
+            this.Client.IsDiffuseur = false;
+
+            this.Client.Pack = listPacks.SelectedItem as Pack;
             this.DialogResult = true;
         }
     }

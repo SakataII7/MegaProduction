@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MegaProductionDBLIB;
+using System.Collections.ObjectModel;
 
 
 namespace MegaProduction
@@ -21,9 +22,48 @@ namespace MegaProduction
     /// </summary>
     public partial class PackWindow : Window
     {
-        public PackWindow(MegaCastingsEntities1 context)
+        private MegaCastingsEntities db;
+        public ObservableCollection<Pack> Packs { get; set; }
+
+        public PackWindow(MegaCastingsEntities context)
         {
             InitializeComponent();
+            db = context;
+            this.Packs = new ObservableCollection<Pack>(db.Packs.ToList());
+            this.DataContext = this;
         }
+
+        private void btn_Ajouter_Click(object sender, RoutedEventArgs e)
+        {
+            InformationPackWindow informationPackWindow = new InformationPackWindow(db);
+
+            if (informationPackWindow.ShowDialog() == true)
+            {
+                db.Packs.Add(informationPackWindow.Pack);
+                this.Packs.Add(informationPackWindow.Pack);
+                db.SaveChanges();
+                
+            }
+        }
+
+        private void btn_Supprimer_Click(object sender, RoutedEventArgs e)
+        {
+            if (listPacks.SelectedItem != null)
+            {
+                Pack pack = listPacks.SelectedItem as Pack;
+                int currentIndex = listPacks.SelectedIndex;
+                db.Packs.Remove(pack);
+                this.Packs.Remove(pack);
+                listPacks.SelectedIndex = currentIndex;
+                listPacks.Focus();
+                db.SaveChanges();
+            }
+        }
+
+        private void btn_Modifier_Click(object sender, RoutedEventArgs e)
+        {
+            db.SaveChanges();
+        }
+
     }
 }

@@ -78,6 +78,9 @@
     <Compile Include="Offre.cs">
       <DependentUpon>MegaCastings.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pack.cs">
+      <DependentUpon>MegaCastings.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeContrat.cs">
       <DependentUpon>MegaCastings.tt</DependentUpon>

@@ -21,49 +21,59 @@ namespace MegaProduction
     /// </summary>
     public partial class ClientWindow : Window
     {
-        MegaCastingsEntities1 db = new MegaCastingsEntities1();
+        MegaCastingsEntities db = new MegaCastingsEntities();
         public ObservableCollection<Client> Clients { get; set; }
+        public ObservableCollection<Client> ClientsNonDiffuseur { get; set; }
 
-        public ClientWindow(MegaCastingsEntities1 context)
+        public ClientWindow(MegaCastingsEntities context)
         {
             InitializeComponent();
+            db = context;
             this.Clients = new ObservableCollection<Client>(db.Clients.ToList());
+            List<Client> Client = new List<Client>();
+
+            foreach (Client client in Clients)
+            {
+                if (client.IsDiffuseur == false)
+                {
+                    Client.Add(client);
+                }
+            }
+
+            ClientsNonDiffuseur = new ObservableCollection<Client>(Client.ToList());
+
             this.DataContext = this;
         }
 
-        private void MN_Ajouter_Click(object sender, RoutedEventArgs e)
+        private void btn_Ajouter_Click(object sender, RoutedEventArgs e)
         {
             InformationClientWindow informationClientWindow = new InformationClientWindow(db);
 
             if (informationClientWindow.ShowDialog() == true)
             {
                 db.Clients.Add(informationClientWindow.Client);
+                this.ClientsNonDiffuseur.Add(informationClientWindow.Client);
                 db.SaveChanges();
             }
         }
 
-        private void MN_Modifier_Click(object sender, RoutedEventArgs e)
+        private void btn_Modifier_Click(object sender, RoutedEventArgs e)
         {
-
+            db.SaveChanges();
         }
 
-        private void MN_Supprimer_Click(object sender, RoutedEventArgs e)
+        private void btn_Supprimer_Click(object sender, RoutedEventArgs e)
         {
             if (listClients.SelectedItem != null)
             {
                 Client client = listClients.SelectedItem as Client;
                 int currentIndex = listClients.SelectedIndex;
                 db.Clients.Remove(client);
-                this.Clients.Remove(client);
+                this.ClientsNonDiffuseur.Remove(client);
                 listClients.SelectedIndex = currentIndex;
                 listClients.Focus();
                 db.SaveChanges();
             }
-        }
-
-        private void MN_Fermer_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

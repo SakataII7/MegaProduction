@@ -12,27 +12,17 @@ namespace MegaProductionDBLIB
     using System;
     using System.Collections.Generic;
     
-    public partial class Client
+    public partial class Pack
     {
-        public Client()
+        public Pack()
         {
-            this.Connexions = new HashSet<Connexion>();
-            this.Offres = new HashSet<Offre>();
+            this.Clients = new HashSet<Client>();
         }
     
         public long Identifiant { get; set; }
         public string Libelle { get; set; }
-        public string Telephone { get; set; }
-        public string Email { get; set; }
-        public string Adresse { get; set; }
-        public string Siret { get; set; }
-        public string URL { get; set; }
-        public string Fax { get; set; }
-        public bool IsDiffuseur { get; set; }
-        public Nullable<long> IdentifiantPack { get; set; }
+        public Nullable<double> Prix { get; set; }
     
-        public virtual Pack Pack { get; set; }
-        public virtual ICollection<Connexion> Connexions { get; set; }
-        public virtual ICollection<Offre> Offres { get; set; }
+        public virtual ICollection<Client> Clients { get; set; }
     }
 }

@@ -8,23 +8,64 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0">
-            <MenuItem Header="Fichier">
-                <MenuItem x:Name="MN_Ajouter" Click="MN_Ajouter_Click" Header="Ajouter"></MenuItem>
-                <MenuItem x:Name="MN_Modifier" Click="MN_Modifier_Click" Header="Modifier"></MenuItem>
-                <MenuItem x:Name="MN_Supprimer" Click="MN_Supprimer_Click" Header="Supprimer"></MenuItem>
-                <Separator></Separator>
-                <MenuItem x:Name="MN_Fermer" Click="MN_Fermer_Click" Header="Fermer"></MenuItem>
-            </MenuItem>
-        </Menu>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" ></ColumnDefinition>
+            <ColumnDefinition Width="50*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding Clients}" x:Name="listClients">
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="33*" ></ColumnDefinition>
+                <ColumnDefinition Width="33*" ></ColumnDefinition>
+                <ColumnDefinition Width="33*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Padding="5" x:Name="btn_Ajouter" Click="btn_Ajouter_Click" Grid.Column="0">Ajouter</Button>
+            <Button Padding="5" x:Name="btn_Modifier" Click="btn_Modifier_Click" Grid.Column="1">Modifier</Button>
+            <Button Padding="5" x:Name="btn_Supprimer" Click="btn_Supprimer_Click" Grid.Column="2">Supprimer</Button>
+        </Grid>
+
+        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ClientsDiffuseur}" x:Name="listClients">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Libelle}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-
         </ListBox>
+
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*" ></ColumnDefinition>
+                <ColumnDefinition Width="50*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Libelle :" Grid.Row="0" Grid.Column="0"></Label>
+            <Label Content="Telephone :" Grid.Row="1" Grid.Column="0"></Label>
+            <Label Content="Email :" Grid.Row="2" Grid.Column="0"></Label>
+            <Label Content="Adresse :" Grid.Row="3" Grid.Column="0"></Label>
+            <Label Content="Siret :" Grid.Row="4" Grid.Column="0"></Label>
+            <Label Content="URL :" Grid.Row="5" Grid.Column="0"></Label>
+            <Label Content="Fax :" Grid.Row="6" Grid.Column="0"></Label>
+            <Label Content="Numéro Pack :" Grid.Row="7" Grid.Column="0"></Label>
+
+            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Libelle }" Grid.Row="0" Grid.Column="1"></TextBox>
+            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Telephone }" Grid.Row="1" Grid.Column="1"></TextBox>
+            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Email }" Grid.Row="2" Grid.Column="1"></TextBox>
+            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Adresse }" Grid.Row="3" Grid.Column="1"></TextBox>
+            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Siret }" Grid.Row="4" Grid.Column="1"></TextBox>
+            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.URL }" Grid.Row="5" Grid.Column="1"></TextBox>
+            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Fax }" Grid.Row="6" Grid.Column="1"></TextBox>
+            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.IdentifiantPack }" Grid.Row="7" Grid.Column="1"></TextBox>
+        </Grid>
     </Grid>
 </Window>

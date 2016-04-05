@@ -19,6 +19,7 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="50*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -29,6 +30,7 @@
         <TextBlock  Grid.Row="5" Grid.Column="1" Text="Siret*: "></TextBlock>
         <TextBlock  Grid.Row="6" Grid.Column="1" Text="URL: "></TextBlock>
         <TextBlock  Grid.Row="7" Grid.Column="1" Text="Fax: "></TextBlock>
+        <TextBlock  Grid.Row="8" Grid.Column="1" Text="Pack: "></TextBlock>
 
         <TextBox Grid.Row="1" Grid.Column="2" Margin="2" Text="{Binding Client.Libelle}"></TextBox>
         <TextBox Grid.Row="2" Grid.Column="2" Margin="2" Text="{Binding Client.Telephone}"></TextBox>
@@ -37,6 +39,16 @@
         <TextBox Grid.Row="5" Grid.Column="2" Margin="2" Text="{Binding Client.Siret}"></TextBox>
         <TextBox Grid.Row="6" Grid.Column="2" Margin="2" Text="{Binding Client.URL}"></TextBox>
         <TextBox Grid.Row="7" Grid.Column="2" Margin="2" Text="{Binding Client.Fax}"></TextBox>
+
+        <ComboBox Grid.Row="8" Grid.Column="2" x:Name="listPacks" ItemsSource="{Binding Packs}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Libelle}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
         <StackPanel Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="4"
                         Orientation="Horizontal" 

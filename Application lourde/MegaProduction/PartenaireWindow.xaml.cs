@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MegaProductionDBLIB;
+using System.Collections.ObjectModel;
 
 namespace MegaProduction
 {
@@ -20,37 +21,60 @@ namespace MegaProduction
     /// </summary>
     public partial class PartenaireWindow : Window
     {
-        MegaCastingsEntities1 db = new MegaCastingsEntities1();
+        MegaCastingsEntities db = new MegaCastingsEntities();
+        public ObservableCollection<Client> Clients { get; set; }
+        public ObservableCollection<Client> ClientsDiffuseur { get; set; }
 
-        public PartenaireWindow(MegaCastingsEntities1 context)
+        public PartenaireWindow(MegaCastingsEntities context)
         {
             InitializeComponent();
+            db = context;
+
+            this.Clients = new ObservableCollection<Client>(db.Clients.ToList());
+            List<Client> Client = new List<Client>();
+
+            foreach (Client client in Clients)
+            {
+                if (client.IsDiffuseur == true)
+                {
+                    Client.Add(client);
+                }
+            }
+
+            ClientsDiffuseur = new ObservableCollection<Client>(Client.ToList());
+
+            this.DataContext = this;
         }
 
-        private void MN_Ajouter_Click(object sender, RoutedEventArgs e)
+        private void btn_Ajouter_Click(object sender, RoutedEventArgs e)
         {
             InformationPartenaireWindow informationPartenaireWindow = new InformationPartenaireWindow(db);
 
             if (informationPartenaireWindow.ShowDialog() == true)
             {
                 db.Clients.Add(informationPartenaireWindow.Client);
+                this.ClientsDiffuseur.Add(informationPartenaireWindow.Client);
                 db.SaveChanges();
             }
         }
 
-        private void MN_Modifier_Click(object sender, RoutedEventArgs e)
+        private void btn_Modifier_Click(object sender, RoutedEventArgs e)
         {
-
+            db.SaveChanges();
         }
 
-        private void MN_Supprimer_Click(object sender, RoutedEventArgs e)
+        private void btn_Supprimer_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void MN_Fermer_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
+            if (listClients.SelectedItem != null)
+            {
+                Client client = listClients.SelectedItem as Client;
+                int currentIndex = listClients.SelectedIndex;
+                db.Clients.Remove(client);
+                this.ClientsDiffuseur.Remove(client);
+                listClients.SelectedIndex = currentIndex;
+                listClients.Focus();
+                db.SaveChanges();
+            }
         }
     }
 }

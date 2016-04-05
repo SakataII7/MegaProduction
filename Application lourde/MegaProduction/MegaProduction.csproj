@@ -65,7 +65,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DomaineMetierWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InformationClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InformationDomaineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InformationMetierWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InformationPackWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,8 +100,20 @@
     <Compile Include="ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DomaineMetierWindow.xaml.cs">
+      <DependentUpon>DomaineMetierWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InformationClientWindow.xaml.cs">
       <DependentUpon>InformationClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InformationDomaineWindow.xaml.cs">
+      <DependentUpon>InformationDomaineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InformationMetierWindow.xaml.cs">
+      <DependentUpon>InformationMetierWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InformationPackWindow.xaml.cs">
+      <DependentUpon>InformationPackWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InformationPartenaireWindow.xaml.cs">
       <DependentUpon>InformationPartenaireWindow.xaml</DependentUpon>

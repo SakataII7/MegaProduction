@@ -13,10 +13,10 @@ namespace MegaProductionDBLIB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MegaCastingsEntities1 : DbContext
+    public partial class MegaCastingsEntities : DbContext
     {
-        public MegaCastingsEntities1()
-            : base("name=MegaCastingsEntities1")
+        public MegaCastingsEntities()
+            : base("name=MegaCastingsEntities")
         {
         }
     
@@ -30,6 +30,7 @@ namespace MegaProductionDBLIB
         public virtual DbSet<DomaineMetier> DomaineMetiers { get; set; }
         public virtual DbSet<Metier> Metiers { get; set; }
         public virtual DbSet<Offre> Offres { get; set; }
+        public virtual DbSet<Pack> Packs { get; set; }
         public virtual DbSet<TypeContrat> TypeContrats { get; set; }
     }
 }
