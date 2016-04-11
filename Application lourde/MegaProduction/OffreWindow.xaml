@@ -1,8 +1,73 @@
 ﻿<Window x:Class="MegaProduction.OffreWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="OffreWindow" Height="300" Width="300">
+        Title="OffreWindow" Height="600" Width="850">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" ></ColumnDefinition>
+            <ColumnDefinition Width="50*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="33*" ></ColumnDefinition>
+                <ColumnDefinition Width="33*" ></ColumnDefinition>
+                <ColumnDefinition Width="33*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Padding="5" x:Name="btn_Ajouter" Click="btn_Ajouter_Click" Grid.Column="0">Ajouter</Button>
+            <Button Padding="5" x:Name="btn_Modifier" Click="btn_Modifier_Click" Grid.Column="1">Modifier</Button>
+            <Button Padding="5" x:Name="btn_Supprimer" Click="btn_Supprimer_Click" Grid.Column="2">Supprimer</Button>
+        </Grid>
+
+        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ClientsNonDiffuseur}" x:Name="listClients">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Libelle}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*" ></ColumnDefinition>
+                <ColumnDefinition Width="50*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Intitule :" Grid.Row="0" Grid.Column="0"></Label>
+            <Label Content="Reference :" Grid.Row="1" Grid.Column="0"></Label>
+            <Label Content="Date de publication :" Grid.Row="2" Grid.Column="0"></Label>
+            <Label Content="Date de début de contrat :" Grid.Row="3" Grid.Column="0"></Label>
+            <Label Content="Nombres de postes :" Grid.Row="4" Grid.Column="0"></Label>
+            <Label Content="Description du poste :" Grid.Row="5" Grid.Column="0"></Label>
+            <Label Content="Description du profil :" Grid.Row="6" Grid.Column="0"></Label>
+            <Label Content="Telephone :" Grid.Row="7" Grid.Column="0"></Label>
+            <Label Content="Email :" Grid.Row="8" Grid.Column="0"></Label>
+            <Label Content="Type de contrat :" Grid.Row="9" Grid.Column="0"></Label>
+            <Label Content="Métier :" Grid.Row="10" Grid.Column="0"></Label>
+            <Label Content="Domaine du Métier :" Grid.Row="11" Grid.Column="0"></Label>
+            <Label Content="Client :" Grid.Row="12" Grid.Column="0"></Label>
+        </Grid>
         
     </Grid>
 </Window>

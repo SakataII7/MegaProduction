@@ -11,33 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MegaProductionDBLIB;
 
 namespace MegaProduction
 {
     /// <summary>
-    /// Logique d'interaction pour OffreWindow.xaml
+    /// Logique d'interaction pour InformationOffreWindow.xaml
     /// </summary>
-    public partial class OffreWindow : Window
+    public partial class InformationOffreWindow : Window
     {
-        public OffreWindow(MegaCastingsEntities context)
+        public InformationOffreWindow()
         {
             InitializeComponent();
-        }
-
-        private void btn_Ajouter_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btn_Modifier_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btn_Supprimer_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

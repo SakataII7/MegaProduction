@@ -81,6 +81,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="InformationOffreWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InformationPackWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +115,9 @@
     </Compile>
     <Compile Include="InformationMetierWindow.xaml.cs">
       <DependentUpon>InformationMetierWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InformationOffreWindow.xaml.cs">
+      <DependentUpon>InformationOffreWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InformationPackWindow.xaml.cs">
       <DependentUpon>InformationPackWindow.xaml</DependentUpon>

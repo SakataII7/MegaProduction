@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MegaProductionDBLIB;
+using System.Collections.ObjectModel;
 
 namespace MegaProduction
 {
@@ -22,13 +23,14 @@ namespace MegaProduction
     {
         private MegaCastingsEntities db;
         public Metier Metier { get; set; }
+        public ObservableCollection<DomaineMetier> DomaineMetiers { get; set; }
 
         public InformationMetierWindow(MegaCastingsEntities context)
         {
             InitializeComponent();
             db = context;
             this.Metier = new Metier();
-
+            this.DomaineMetiers = new ObservableCollection<DomaineMetier>(db.DomaineMetiers.ToList());
             this.DataContext = this;
         }
 
@@ -39,6 +41,7 @@ namespace MegaProduction
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
+            this.Metier.DomaineMetier = listDomaines.SelectedItem as DomaineMetier;
             this.DialogResult = true;
         }
     }

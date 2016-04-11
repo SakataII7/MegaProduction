@@ -24,12 +24,14 @@ namespace MegaProduction
         MegaCastingsEntities db = new MegaCastingsEntities();
         public ObservableCollection<Client> Clients { get; set; }
         public ObservableCollection<Client> ClientsNonDiffuseur { get; set; }
+        public ObservableCollection<Pack> Packs { get; set; }
 
         public ClientWindow(MegaCastingsEntities context)
         {
             InitializeComponent();
             db = context;
             this.Clients = new ObservableCollection<Client>(db.Clients.ToList());
+            this.Packs = new ObservableCollection<Pack>(db.Packs.ToList());
             List<Client> Client = new List<Client>();
 
             foreach (Client client in Clients)

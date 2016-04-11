@@ -14,12 +14,23 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="50*" ></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="50*"></RowDefinition>
             </Grid.RowDefinitions>
 
             <TextBlock  Grid.Row="1" Grid.Column="1" Text="Libelle*: "></TextBlock>
 
             <TextBox Grid.Row="1" Grid.Column="2" Margin="2" Text="{Binding Metier.Libelle}"></TextBox>
+
+            <ComboBox Grid.Row="2" Grid.Column="2" x:Name="listDomaines" ItemsSource="{Binding DomaineMetiers}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Libelle}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
             <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
                         Orientation="Horizontal" 
