@@ -1,6 +1,8 @@
-<%@page import="MegaCasting.classes.Pagination"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Date"%>
 <%@page import="MegaCasting.classes.Offre"%>
+<%@page import="MegaCasting.classes.ViewOffre"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Collection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,10 +16,12 @@
     </head>
     <body>
         <h1 class="titre">MegaCasting</h1>
-       
-        <form id='listOffre' action="listOffre" method="post">
+        
+        <a href="http://localhost:8080/MegaCasting/connexion">Connexion</a>
+        
+        <form id='offre' action="offre" method="post">
             <div class="center">
-                <input type="hidden" name="offre" id="offre"/>
+                <input type="hidden" name="UneOffre" id="UneOffre"/>
                 <% List<String> NomOffre = (List<String>) request.getAttribute("nomoffre");
                    List<Long> IdOffre = (List<Long>) request.getAttribute("idoffre");
                    List<Date> DebutOffre = (List<Date>) request.getAttribute("debutcontrat");
@@ -26,7 +30,7 @@
                 %>
                 
                 <%while(i < NomOffre.size()){ %>                    
-                    <button type="button" onclick="document.getElementById('offre').value = '<%=IdOffre.get(i)%>'; document.getElementById('listOffre').submit();">
+                    <button type="button" onclick="document.getElementById('UneOffre').value = '<%=IdOffre.get(i)%>'; document.getElementById('offre').submit();">
                         <span class="Nomoffre"><%=NomOffre.get(i)%></span></br></br>
                         <span class="DebutOffre"><%=DebutOffre.get(i)%></span>
                         <span class="NbPoste">Postes:<%=NbPoste.get(i)%></span>

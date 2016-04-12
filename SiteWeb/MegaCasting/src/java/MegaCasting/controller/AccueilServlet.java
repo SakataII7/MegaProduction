@@ -6,8 +6,8 @@
 package MegaCasting.controller;
 
 import MegaCasting.BDD.ConnexionBDD;
-import MegaCasting.classes.Pagination;
-import MegaCasting.classes.TestPagination;
+import MegaCasting.classes.Offre;
+import MegaCasting.classes.ViewOffre;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
@@ -54,11 +54,11 @@ public class AccueilServlet extends HttpServlet {
             List<Long> IDoffre = new ArrayList<>();
             List<Date> DebutContrat = new ArrayList<>();
             List<Long> NombresPostes = new ArrayList<>();
-            
+
             stmt = cnx.createStatement();
-            
+
             ResultSet rs = stmt.executeQuery("SELECT Identifiant, Intitule, DateDebutContrat, NbPostes FROM Offre");
-            
+
             while(rs.next())
             {                
                 NomOffre.add( rs.getString("Intitule"));
@@ -67,11 +67,10 @@ public class AccueilServlet extends HttpServlet {
                 NombresPostes.add( rs.getLong("NbPostes"));
             }
             
-                req.setAttribute("nomoffre",NomOffre);
-                req.setAttribute("idoffre",IDoffre);
-                req.setAttribute("debutcontrat",DebutContrat);
-                req.setAttribute("nbpostes",NombresPostes);
-                
+                req.setAttribute("idoffre", IDoffre);
+                req.setAttribute("nomoffre", NomOffre);
+                req.setAttribute("debutcontrat", DebutContrat);
+                req.setAttribute("nbpostes", NombresPostes);
 
         } catch (SQLException ex) {
             System.out.println("Une erreur est survenue" + ex);
