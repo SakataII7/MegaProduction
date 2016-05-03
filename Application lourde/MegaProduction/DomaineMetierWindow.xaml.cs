@@ -24,6 +24,8 @@ namespace MegaProduction
         MegaCastingsEntities db = new MegaCastingsEntities();
         public ObservableCollection<DomaineMetier> DomaineMetiers { get; set; }
         public ObservableCollection<Metier> Metiers { get; set; }
+        public DomaineMetier domaine { get; set; }
+        public Metier metier { get; set; }
 
         public DomaineMetierWindow(MegaCastingsEntities context)
         {
@@ -36,7 +38,8 @@ namespace MegaProduction
 
         private void btn_Ajouter_Domaine_Click(object sender, RoutedEventArgs e)
         {
-            InformationDomaineWindow informationDomaineWindow = new InformationDomaineWindow(db);
+            domaine = new DomaineMetier();
+            InformationDomaineWindow informationDomaineWindow = new InformationDomaineWindow(db,domaine);
 
             if (informationDomaineWindow.ShowDialog() == true)
             {
@@ -48,14 +51,21 @@ namespace MegaProduction
 
         private void btn_Modifier_Domaine_Click(object sender, RoutedEventArgs e)
         {
-            
+            domaine = listDomaines.SelectedItem as DomaineMetier;
+            int currentIndex = listDomaines.SelectedIndex;
+            InformationDomaineWindow informationDomaineWindow = new InformationDomaineWindow(db,domaine);
+
+            if (informationDomaineWindow.ShowDialog() == true)
+            {
+                db.SaveChanges();
+            }
         }
 
         private void btn_Supprimer_Domaine_Click(object sender, RoutedEventArgs e)
         {
             if (listDomaines.SelectedItem != null)
             {
-                DomaineMetier domaine = listDomaines.SelectedItem as DomaineMetier;
+                domaine = listDomaines.SelectedItem as DomaineMetier;
                 int currentIndex = listDomaines.SelectedIndex;
                 db.DomaineMetiers.Remove(domaine);
                 this.DomaineMetiers.Remove(domaine);
@@ -67,7 +77,8 @@ namespace MegaProduction
 
         private void btn_Ajouter_Metier_Click(object sender, RoutedEventArgs e)
         {
-            InformationMetierWindow informationMetierWindow = new InformationMetierWindow(db);
+            metier = new Metier();
+            InformationMetierWindow informationMetierWindow = new InformationMetierWindow(db,metier);
 
             if (informationMetierWindow.ShowDialog() == true)
             {
@@ -80,7 +91,17 @@ namespace MegaProduction
 
         private void btn_Modifier_Metier_Click(object sender, RoutedEventArgs e)
         {
+            metier = listMetiers.SelectedItem as Metier;
+            int currentIndex = listMetiers.SelectedIndex;
+            InformationMetierWindow informationMetierWindow = new InformationMetierWindow(db,metier);
 
+            if (informationMetierWindow.ShowDialog() == true)
+            {
+                db.Metiers.Add(informationMetierWindow.Metier);
+                this.Metiers.Add(informationMetierWindow.Metier);
+
+                db.SaveChanges();
+            }
         }
 
         private void btn_Supprimer_Metier_Click(object sender, RoutedEventArgs e)

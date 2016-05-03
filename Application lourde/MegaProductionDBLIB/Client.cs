@@ -14,6 +14,7 @@ namespace MegaProductionDBLIB
     
     public partial class Client
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client()
         {
             this.Connexions = new HashSet<Connexion>();
@@ -32,7 +33,9 @@ namespace MegaProductionDBLIB
         public Nullable<long> IdentifiantPack { get; set; }
     
         public virtual Pack Pack { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Connexion> Connexions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Offre> Offres { get; set; }
     }
 }

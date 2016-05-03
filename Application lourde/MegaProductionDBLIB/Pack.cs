@@ -14,6 +14,7 @@ namespace MegaProductionDBLIB
     
     public partial class Pack
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pack()
         {
             this.Clients = new HashSet<Client>();
@@ -23,6 +24,7 @@ namespace MegaProductionDBLIB
         public string Libelle { get; set; }
         public Nullable<double> Prix { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Client> Clients { get; set; }
     }
 }

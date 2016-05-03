@@ -23,11 +23,11 @@ namespace MegaProduction
         private MegaCastingsEntities db;
         public DomaineMetier DomaineMetier { get; set; }
 
-        public InformationDomaineWindow(MegaCastingsEntities context)
+        public InformationDomaineWindow(MegaCastingsEntities context, DomaineMetier domaine)
         {
             InitializeComponent();
             db = context;
-            this.DomaineMetier = new DomaineMetier();
+            this.DomaineMetier = domaine;
 
             this.DataContext = this;
         }

@@ -24,6 +24,7 @@ namespace MegaProduction
     {
         private MegaCastingsEntities db;
         public ObservableCollection<Pack> Packs { get; set; }
+        public Pack pack { get; set; }
 
         public PackWindow(MegaCastingsEntities context)
         {
@@ -35,7 +36,8 @@ namespace MegaProduction
 
         private void btn_Ajouter_Click(object sender, RoutedEventArgs e)
         {
-            InformationPackWindow informationPackWindow = new InformationPackWindow(db);
+            pack = new Pack();
+            InformationPackWindow informationPackWindow = new InformationPackWindow(pack);
 
             if (informationPackWindow.ShowDialog() == true)
             {
@@ -50,7 +52,7 @@ namespace MegaProduction
         {
             if (listPacks.SelectedItem != null)
             {
-                Pack pack = listPacks.SelectedItem as Pack;
+                pack = listPacks.SelectedItem as Pack;
                 int currentIndex = listPacks.SelectedIndex;
                 db.Packs.Remove(pack);
                 this.Packs.Remove(pack);
@@ -62,7 +64,14 @@ namespace MegaProduction
 
         private void btn_Modifier_Click(object sender, RoutedEventArgs e)
         {
-            db.SaveChanges();
+            pack = listPacks.SelectedItem as Pack;
+            int currentIndex = listPacks.SelectedIndex;
+            InformationPackWindow informationPackWindow = new InformationPackWindow(pack);
+
+            if (informationPackWindow.ShowDialog() == true)
+            {
+                db.SaveChanges();
+            }
         }
 
     }

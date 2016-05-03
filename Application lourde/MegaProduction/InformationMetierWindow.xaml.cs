@@ -25,11 +25,11 @@ namespace MegaProduction
         public Metier Metier { get; set; }
         public ObservableCollection<DomaineMetier> DomaineMetiers { get; set; }
 
-        public InformationMetierWindow(MegaCastingsEntities context)
+        public InformationMetierWindow(MegaCastingsEntities context, Metier metier)
         {
             InitializeComponent();
             db = context;
-            this.Metier = new Metier();
+            this.Metier = metier;
             this.DomaineMetiers = new ObservableCollection<DomaineMetier>(db.DomaineMetiers.ToList());
             this.DataContext = this;
         }

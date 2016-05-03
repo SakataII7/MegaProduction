@@ -20,15 +20,13 @@ namespace MegaProduction
     /// </summary>
     public partial class InformationPackWindow : Window
     {
-        private MegaCastingsEntities db;
         public Pack Pack { get; set; }
 
-        public InformationPackWindow(MegaCastingsEntities context)
+        public InformationPackWindow(Pack pack)
         {
             InitializeComponent();
-            db = context;
-            this.Pack = new Pack();
 
+            Pack = pack;
             this.DataContext = this;
         }
 

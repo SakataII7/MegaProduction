@@ -58,25 +58,14 @@
             <Label Content="Fax :" Grid.Row="6" Grid.Column="0"></Label>
             <Label Content="Pack :" Grid.Row="7" Grid.Column="0"></Label>
 
-            <ComboBox Grid.Row="7" Grid.Column="1" x:Name="listPacks" ItemsSource="{Binding Packs}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding ElementName=listClients, Path=SelectedItem.Pack.Libelle }" />
-                            <TextBlock Text="{Binding Libelle}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-
-            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Libelle }" Grid.Row="0" Grid.Column="1"></TextBox>
-            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Telephone }" Grid.Row="1" Grid.Column="1"></TextBox>
-            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Email }" Grid.Row="2" Grid.Column="1"></TextBox>
-            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Adresse }" Grid.Row="3" Grid.Column="1"></TextBox>
-            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Siret }" Grid.Row="4" Grid.Column="1"></TextBox>
-            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.URL }" Grid.Row="5" Grid.Column="1"></TextBox>
-            <TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Fax }" Grid.Row="6" Grid.Column="1"></TextBox>
-            <!--<TextBox Text="{Binding ElementName=listClients, Path=SelectedItem.Pack.Libelle }" Grid.Row="7" Grid.Column="1"></TextBox>-->
+            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Libelle }" Grid.Row="0" Grid.Column="1"></Label>
+            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Telephone }" Grid.Row="1" Grid.Column="1"></Label>
+            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Email }" Grid.Row="2" Grid.Column="1"></Label>
+            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Adresse }" Grid.Row="3" Grid.Column="1"></Label>
+            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Siret }" Grid.Row="4" Grid.Column="1"></Label>
+            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.URL }" Grid.Row="5" Grid.Column="1"></Label>
+            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Fax }" Grid.Row="6" Grid.Column="1"></Label>
+            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Pack.Libelle }" Grid.Row="7" Grid.Column="1"></Label>
         </Grid>
     </Grid>
 </Window>

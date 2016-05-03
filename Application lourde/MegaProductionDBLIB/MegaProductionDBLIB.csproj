@@ -94,23 +94,25 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MegaCastings.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MegaCastings.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MegaCastings.edmx</DependentUpon>
-      <LastGenOutput>MegaCastings.Context.cs</LastGenOutput>
-    </None>
     <None Include="MegaCastings.edmx.diagram">
       <DependentUpon>MegaCastings.edmx</DependentUpon>
-    </None>
-    <None Include="MegaCastings.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MegaCastings.edmx</DependentUpon>
-      <LastGenOutput>MegaCastings.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MegaCastings.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MegaCastings.edmx</DependentUpon>
+      <LastGenOutput>MegaCastings.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MegaCastings.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MegaCastings.edmx</DependentUpon>
+      <LastGenOutput>MegaCastings.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

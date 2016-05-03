@@ -24,12 +24,12 @@ namespace MegaProduction
         MegaCastingsEntities db = new MegaCastingsEntities();
         public ObservableCollection<Client> Clients { get; set; }
         public ObservableCollection<Client> ClientsDiffuseur { get; set; }
+        public Client client { get; set; }
 
         public PartenaireWindow(MegaCastingsEntities context)
         {
             InitializeComponent();
             db = context;
-
             this.Clients = new ObservableCollection<Client>(db.Clients.ToList());
             List<Client> Client = new List<Client>();
 
@@ -48,11 +48,13 @@ namespace MegaProduction
 
         private void btn_Ajouter_Click(object sender, RoutedEventArgs e)
         {
-            InformationPartenaireWindow informationPartenaireWindow = new InformationPartenaireWindow(db);
+            client = new Client();
+            InformationPartenaireWindow informationPartenaireWindow = new InformationPartenaireWindow(client,db);
 
             if (informationPartenaireWindow.ShowDialog() == true)
             {
                 db.Clients.Add(informationPartenaireWindow.Client);
+                db.Connexions.Add(informationPartenaireWindow.Connexion);
                 this.ClientsDiffuseur.Add(informationPartenaireWindow.Client);
                 db.SaveChanges();
             }
@@ -60,14 +62,21 @@ namespace MegaProduction
 
         private void btn_Modifier_Click(object sender, RoutedEventArgs e)
         {
-            db.SaveChanges();
+            client = listClients.SelectedItem as Client;
+            int currentIndex = listClients.SelectedIndex;
+            InformationPartenaireWindow informationPartenaireWindow = new InformationPartenaireWindow(client, db);
+
+            if (informationPartenaireWindow.ShowDialog() == true)
+            {
+                db.SaveChanges();
+            }
         }
 
         private void btn_Supprimer_Click(object sender, RoutedEventArgs e)
         {
             if (listClients.SelectedItem != null)
             {
-                Client client = listClients.SelectedItem as Client;
+                client = listClients.SelectedItem as Client;
                 int currentIndex = listClients.SelectedIndex;
                 db.Clients.Remove(client);
                 this.ClientsDiffuseur.Remove(client);

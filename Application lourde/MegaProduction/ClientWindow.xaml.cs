@@ -25,6 +25,7 @@ namespace MegaProduction
         public ObservableCollection<Client> Clients { get; set; }
         public ObservableCollection<Client> ClientsNonDiffuseur { get; set; }
         public ObservableCollection<Pack> Packs { get; set; }
+        public Client client { get; set; }
 
         public ClientWindow(MegaCastingsEntities context)
         {
@@ -49,7 +50,8 @@ namespace MegaProduction
 
         private void btn_Ajouter_Click(object sender, RoutedEventArgs e)
         {
-            InformationClientWindow informationClientWindow = new InformationClientWindow(db);
+            client = new Client();
+            InformationClientWindow informationClientWindow = new InformationClientWindow(client, db);
 
             if (informationClientWindow.ShowDialog() == true)
             {
@@ -61,14 +63,21 @@ namespace MegaProduction
 
         private void btn_Modifier_Click(object sender, RoutedEventArgs e)
         {
-            db.SaveChanges();
+            client = listClients.SelectedItem as Client;
+            int currentIndex = listClients.SelectedIndex;
+            InformationClientWindow informationClientWindow = new InformationClientWindow(client,db);
+
+            if (informationClientWindow.ShowDialog() == true)
+            {
+                db.SaveChanges();
+            }
         }
 
         private void btn_Supprimer_Click(object sender, RoutedEventArgs e)
         {
             if (listClients.SelectedItem != null)
             {
-                Client client = listClients.SelectedItem as Client;
+                client = listClients.SelectedItem as Client;
                 int currentIndex = listClients.SelectedIndex;
                 db.Clients.Remove(client);
                 this.ClientsNonDiffuseur.Remove(client);

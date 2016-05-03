@@ -21,18 +21,17 @@ namespace MegaProduction
     /// </summary>
     public partial class InformationClientWindow : Window
     {
-        private MegaCastingsEntities db;
+        public MegaCastingsEntities db;
         public Client Client { get; set; }
         public ObservableCollection<Pack> Packs { get; set; }
 
-        public InformationClientWindow(MegaCastingsEntities context)
+        public InformationClientWindow(Client client, MegaCastingsEntities context)
         {
             InitializeComponent();
             db = context;
-            this.Client = new Client();
+            this.Client = client;
             this.Packs = new ObservableCollection<Pack>(db.Packs.ToList());
             this.DataContext = this;
-       
         }
 
         private void BTN_Cancel_Click(object sender, RoutedEventArgs e)
@@ -43,7 +42,6 @@ namespace MegaProduction
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
             this.Client.IsDiffuseur = false;
-
             this.Client.Pack = listPacks.SelectedItem as Pack;
             this.DialogResult = true;
         }

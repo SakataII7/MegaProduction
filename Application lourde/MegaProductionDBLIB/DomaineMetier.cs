@@ -14,6 +14,7 @@ namespace MegaProductionDBLIB
     
     public partial class DomaineMetier
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DomaineMetier()
         {
             this.Metiers = new HashSet<Metier>();
@@ -23,7 +24,9 @@ namespace MegaProductionDBLIB
         public long Identifiant { get; set; }
         public string Libelle { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Metier> Metiers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Offre> Offres { get; set; }
     }
 }

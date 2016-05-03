@@ -19,6 +19,8 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="50*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -29,6 +31,8 @@
         <TextBlock  Grid.Row="5" Grid.Column="1" Text="Siret*: "></TextBlock>
         <TextBlock  Grid.Row="6" Grid.Column="1" Text="URL: "></TextBlock>
         <TextBlock  Grid.Row="7" Grid.Column="1" Text="Fax: "></TextBlock>
+        <TextBlock  Grid.Row="8" Grid.Column="1" Text="Identifiant*: "></TextBlock>
+        <TextBlock  Grid.Row="9" Grid.Column="1" Text="Mot de passe*: "></TextBlock>
 
         <TextBox Grid.Row="1" Grid.Column="2" Margin="2" Text="{Binding Client.Libelle}"></TextBox>
         <TextBox Grid.Row="2" Grid.Column="2" Margin="2" Text="{Binding Client.Telephone}"></TextBox>
@@ -37,8 +41,10 @@
         <TextBox Grid.Row="5" Grid.Column="2" Margin="2" Text="{Binding Client.Siret}"></TextBox>
         <TextBox Grid.Row="6" Grid.Column="2" Margin="2" Text="{Binding Client.URL}"></TextBox>
         <TextBox Grid.Row="7" Grid.Column="2" Margin="2" Text="{Binding Client.Fax}"></TextBox>
+        <TextBox Grid.Row="8" Grid.Column="2" Margin="2" Text="{Binding Connexion.Login}"></TextBox>
+        <TextBox Grid.Row="9" Grid.Column="2" Margin="2" Text="{Binding Connexion.Password}"></TextBox>
 
-        <StackPanel Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="4"
+        <StackPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="4"
                         Orientation="Horizontal" 
                         FlowDirection="RightToLeft" 
                         VerticalAlignment="Bottom">

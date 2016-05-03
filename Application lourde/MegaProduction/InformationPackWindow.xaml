@@ -17,12 +17,15 @@
             <RowDefinition Height="50*"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <!--Nom caractéristique du pack-->
         <TextBlock  Grid.Row="1" Grid.Column="1" Text="Libelle*: "></TextBlock>
         <TextBlock  Grid.Row="2" Grid.Column="1" Text="Prix: "></TextBlock>
 
+        <!--Caractéristique du pack-->
         <TextBox Grid.Row="1" Grid.Column="2" Margin="2" Text="{Binding Pack.Libelle}"></TextBox>
         <TextBox Grid.Row="2" Grid.Column="2" Margin="2" Text="{Binding Pack.Prix}"></TextBox>
 
+        <!--Bouton de validation et d'annulation-->
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
                         Orientation="Horizontal" 
                         FlowDirection="RightToLeft" 
