@@ -39,7 +39,15 @@ namespace MegaProduction
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            if(this.DomaineMetier.Libelle == null)
+            {
+                MessageBox.Show("Veuillez remplir le libelle");
+            }
+            else
+            {
+                this.DialogResult = true;
+            }
+            
         }
     }
 }

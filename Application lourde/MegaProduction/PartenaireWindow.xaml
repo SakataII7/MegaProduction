@@ -68,8 +68,8 @@
             <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Siret }" Grid.Row="4" Grid.Column="1"></Label>
             <Label Content="{Binding ElementName=listClients, Path=SelectedItem.URL }" Grid.Row="5" Grid.Column="1"></Label>
             <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Fax }" Grid.Row="6" Grid.Column="1"></Label>
-            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Connexions }" Grid.Row="7" Grid.Column="1"></Label>
-            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Fax }" Grid.Row="8" Grid.Column="1"></Label>
+            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Connexion.Login }" Grid.Row="7" Grid.Column="1"></Label>
+            <Label Content="{Binding ElementName=listClients, Path=SelectedItem.Connexion.Password }" Grid.Row="8" Grid.Column="1"></Label>
         </Grid>
     </Grid>
 </Window>

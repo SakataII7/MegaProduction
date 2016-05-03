@@ -19,6 +19,7 @@
           <Property Name="Fax" Type="nvarchar" MaxLength="250" />
           <Property Name="IsDiffuseur" Type="bit" Nullable="false" />
           <Property Name="IdentifiantPack" Type="bigint" />
+          <Property Name="IdentifiantConnexion" Type="bigint" />
         </EntityType>
         <EntityType Name="Connexion">
           <Key>
@@ -27,7 +28,6 @@
           <Property Name="Identifiant" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="250" />
           <Property Name="Password" Type="nvarchar" MaxLength="250" />
-          <Property Name="IdentifiantClient" Type="bigint" />
         </EntityType>
         <EntityType Name="DomaineMetier">
           <Key>
@@ -79,6 +79,18 @@
           <Property Name="Identifiant" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Libelle" Type="nvarchar" MaxLength="250" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Client_Connexion">
+          <End Role="Connexion" Type="Self.Connexion" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Connexion">
+              <PropertyRef Name="Identifiant" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdentifiantConnexion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Client_Pack">
           <End Role="Pack" Type="Self.Pack" Multiplicity="0..1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
@@ -88,18 +100,6 @@
             </Principal>
             <Dependent Role="Client">
               <PropertyRef Name="IdentifiantPack" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Connexion_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="Connexion" Type="Self.Connexion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="Identifiant" />
-            </Principal>
-            <Dependent Role="Connexion">
-              <PropertyRef Name="IdentifiantClient" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -171,13 +171,13 @@
           <EntitySet Name="Offre" EntityType="Self.Offre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pack" EntityType="Self.Pack" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeContrat" EntityType="Self.TypeContrat" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Client_Connexion" Association="Self.FK_Client_Connexion">
+            <End Role="Connexion" EntitySet="Connexion" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
           <AssociationSet Name="FK_Client_Pack" Association="Self.FK_Client_Pack">
             <End Role="Pack" EntitySet="Pack" />
             <End Role="Client" EntitySet="Client" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Connexion_Client" Association="Self.FK_Connexion_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Connexion" EntitySet="Connexion" />
           </AssociationSet>
           <AssociationSet Name="FK_Metier_DomaineMetier" Association="Self.FK_Metier_DomaineMetier">
             <End Role="DomaineMetier" EntitySet="DomaineMetier" />
@@ -212,13 +212,13 @@
           <EntitySet Name="Offres" EntityType="MegaCastingsModel.Offre" />
           <EntitySet Name="Packs" EntityType="MegaCastingsModel.Pack" />
           <EntitySet Name="TypeContrats" EntityType="MegaCastingsModel.TypeContrat" />
+          <AssociationSet Name="FK_Client_Connexion" Association="MegaCastingsModel.FK_Client_Connexion">
+            <End Role="Connexion" EntitySet="Connexions" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
           <AssociationSet Name="FK_Client_Pack" Association="MegaCastingsModel.FK_Client_Pack">
             <End Role="Pack" EntitySet="Packs" />
             <End Role="Client" EntitySet="Clients" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Connexion_Client" Association="MegaCastingsModel.FK_Connexion_Client">
-            <End Role="Client" EntitySet="Clients" />
-            <End Role="Connexion" EntitySet="Connexions" />
           </AssociationSet>
           <AssociationSet Name="FK_Offre_Client" Association="MegaCastingsModel.FK_Offre_Client">
             <End Role="Client" EntitySet="Clients" />
@@ -255,8 +255,9 @@
           <Property Name="Fax" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="IsDiffuseur" Type="Boolean" Nullable="false" />
           <Property Name="IdentifiantPack" Type="Int64" />
+          <Property Name="IdentifiantConnexion" Type="Int64" />
+          <NavigationProperty Name="Connexion" Relationship="MegaCastingsModel.FK_Client_Connexion" FromRole="Client" ToRole="Connexion" />
           <NavigationProperty Name="Pack" Relationship="MegaCastingsModel.FK_Client_Pack" FromRole="Client" ToRole="Pack" />
-          <NavigationProperty Name="Connexions" Relationship="MegaCastingsModel.FK_Connexion_Client" FromRole="Client" ToRole="Connexion" />
           <NavigationProperty Name="Offres" Relationship="MegaCastingsModel.FK_Offre_Client" FromRole="Client" ToRole="Offre" />
         </EntityType>
         <EntityType Name="Connexion">
@@ -266,8 +267,7 @@
           <Property Name="Identifiant" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="IdentifiantClient" Type="Int64" />
-          <NavigationProperty Name="Client" Relationship="MegaCastingsModel.FK_Connexion_Client" FromRole="Connexion" ToRole="Client" />
+          <NavigationProperty Name="Clients" Relationship="MegaCastingsModel.FK_Client_Connexion" FromRole="Connexion" ToRole="Client" />
         </EntityType>
         <EntityType Name="DomaineMetier">
           <Key>
@@ -329,6 +329,18 @@
           <Property Name="Libelle" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Offres" Relationship="MegaCastingsModel.FK_Offre_TypeContrat" FromRole="TypeContrat" ToRole="Offre" />
         </EntityType>
+        <Association Name="FK_Client_Connexion">
+          <End Type="MegaCastingsModel.Connexion" Role="Connexion" Multiplicity="0..1" />
+          <End Type="MegaCastingsModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Connexion">
+              <PropertyRef Name="Identifiant" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdentifiantConnexion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Client_Pack">
           <End Type="MegaCastingsModel.Pack" Role="Pack" Multiplicity="0..1" />
           <End Type="MegaCastingsModel.Client" Role="Client" Multiplicity="*" />
@@ -338,18 +350,6 @@
             </Principal>
             <Dependent Role="Client">
               <PropertyRef Name="IdentifiantPack" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Connexion_Client">
-          <End Type="MegaCastingsModel.Client" Role="Client" Multiplicity="0..1" />
-          <End Type="MegaCastingsModel.Connexion" Role="Connexion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="Identifiant" />
-            </Principal>
-            <Dependent Role="Connexion">
-              <PropertyRef Name="IdentifiantClient" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -413,7 +413,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -422,6 +422,7 @@
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="MegaCastingsModel.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="IdentifiantConnexion" ColumnName="IdentifiantConnexion" />
                 <ScalarProperty Name="IdentifiantPack" ColumnName="IdentifiantPack" />
                 <ScalarProperty Name="IsDiffuseur" ColumnName="IsDiffuseur" />
                 <ScalarProperty Name="Fax" ColumnName="Fax" />
@@ -438,7 +439,6 @@
           <EntitySetMapping Name="Connexions">
             <EntityTypeMapping TypeName="MegaCastingsModel.Connexion">
               <MappingFragment StoreEntitySet="Connexion">
-                <ScalarProperty Name="IdentifiantClient" ColumnName="IdentifiantClient" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />

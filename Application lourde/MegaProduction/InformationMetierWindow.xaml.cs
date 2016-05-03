@@ -41,8 +41,15 @@ namespace MegaProduction
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
-            this.Metier.DomaineMetier = listDomaines.SelectedItem as DomaineMetier;
-            this.DialogResult = true;
+            if(this.Metier.Libelle == null)
+            {
+                MessageBox.Show("Veuillez remplir le libelle");
+            }
+            else
+            {
+                this.Metier.DomaineMetier = listDomaines.SelectedItem as DomaineMetier;
+                this.DialogResult = true;
+            }
         }
     }
 }

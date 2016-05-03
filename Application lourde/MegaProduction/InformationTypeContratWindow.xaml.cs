@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MegaProductionDBLIB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +12,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MegaProductionDBLIB;
 
 namespace MegaProduction
 {
     /// <summary>
-    /// Logique d'interaction pour InformationPackWindow.xaml
+    /// Logique d'interaction pour InformationTypeContratWindow.xaml
     /// </summary>
-    public partial class InformationPackWindow : Window
+    public partial class InformationTypeContratWindow : Window
     {
-        public Pack Pack { get; set; }
+        private MegaCastingsEntities db;
+        public TypeContrat TypeContrat { get; set; }
 
-        public InformationPackWindow(Pack pack)
+        public InformationTypeContratWindow(MegaCastingsEntities context, TypeContrat typeContrat)
         {
             InitializeComponent();
-
-            Pack = pack;
+            db = context;
+            this.TypeContrat = typeContrat;
             this.DataContext = this;
         }
 
@@ -37,14 +38,7 @@ namespace MegaProduction
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
-            if(this.Pack.Libelle == null)
-            {
-                MessageBox.Show("Veuillez remplir le libelle");
-            }
-            else
-            {
-                this.DialogResult = true;
-            }
+            this.DialogResult = true;
         }
     }
 }

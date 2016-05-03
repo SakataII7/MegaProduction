@@ -19,6 +19,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock  Grid.Row="1" Grid.Column="1" Text="Libelle*: "></TextBlock>
+            <TextBlock  Grid.Row="2" Grid.Column="1" Text="Domaine: "></TextBlock>
 
             <TextBox Grid.Row="1" Grid.Column="2" Margin="2" Text="{Binding Metier.Libelle}"></TextBox>
 

@@ -17,7 +17,6 @@ namespace MegaProductionDBLIB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client()
         {
-            this.Connexions = new HashSet<Connexion>();
             this.Offres = new HashSet<Offre>();
         }
     
@@ -31,10 +30,10 @@ namespace MegaProductionDBLIB
         public string Fax { get; set; }
         public bool IsDiffuseur { get; set; }
         public Nullable<long> IdentifiantPack { get; set; }
+        public Nullable<long> IdentifiantConnexion { get; set; }
     
+        public virtual Connexion Connexion { get; set; }
         public virtual Pack Pack { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Connexion> Connexions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Offre> Offres { get; set; }
     }

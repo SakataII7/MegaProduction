@@ -29,31 +29,47 @@ namespace MegaProduction
         {
             InitializeComponent();
             db = context;
+            this.Offres = new ObservableCollection<Offre>(db.Offres.ToList());
             this.DataContext = this;
         }
 
         private void btn_Ajouter_Click(object sender, RoutedEventArgs e)
         {
             offre = new Offre();
-            InformationOffreWindow informationOffreWindow = new InformationOffreWindow(offre,db);
+            InformationOffreWindow informationOffreWindow = new InformationOffreWindow(db,offre);
 
             if (informationOffreWindow.ShowDialog() == true)
             {
                 db.Offres.Add(informationOffreWindow.Offre);
                 this.Offres.Add(informationOffreWindow.Offre);
                 db.SaveChanges();
-
             }
         }
 
         private void btn_Modifier_Click(object sender, RoutedEventArgs e)
         {
+            offre = listOffres.SelectedItem as Offre;
+            int currentIndex = listOffres.SelectedIndex;
+            InformationOffreWindow informationOffreWindow = new InformationOffreWindow(db, offre);
 
+            if (informationOffreWindow.ShowDialog() == true)
+            {
+                db.SaveChanges();
+            }
         }
 
         private void btn_Supprimer_Click(object sender, RoutedEventArgs e)
         {
-
+            if (listOffres.SelectedItem != null)
+            {
+                offre = listOffres.SelectedItem as Offre;
+                int currentIndex = listOffres.SelectedIndex;
+                db.Offres.Remove(offre);
+                this.Offres.Remove(offre);
+                listOffres.SelectedIndex = currentIndex;
+                listOffres.Focus();
+                db.SaveChanges();
+            }
         }
     }
 }

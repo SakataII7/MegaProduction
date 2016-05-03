@@ -25,37 +25,34 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="50*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock  Grid.Row="1" Grid.Column="1" Text="Intitule: "></TextBlock>
-        <TextBlock  Grid.Row="2" Grid.Column="1" Text="Reference: "></TextBlock>
-        <TextBlock  Grid.Row="3" Grid.Column="1" Text="Date de publication: "></TextBlock>
-        <TextBlock  Grid.Row="4" Grid.Column="1" Text="Début du contrat: "></TextBlock>
+        <TextBlock  Grid.Row="1" Grid.Column="1" Text="Intitule*: "></TextBlock>
+        <TextBlock  Grid.Row="2" Grid.Column="1" Text="Date de publication*: "></TextBlock>
+        <TextBlock  Grid.Row="3" Grid.Column="1" Text="Début du contrat*: "></TextBlock>
+        <TextBlock  Grid.Row="4" Grid.Column="1" Text="Nombre de postes*: "></TextBlock>
         <TextBlock  Grid.Row="5" Grid.Column="1" Text="Durée diffusion*: "></TextBlock>
-        <TextBlock  Grid.Row="6" Grid.Column="1" Text="Nombre de postes: "></TextBlock>
-        <TextBlock  Grid.Row="7" Grid.Column="1" Text="Description du poste: "></TextBlock>
-        <TextBlock  Grid.Row="8" Grid.Column="1" Text="Description du profil*: "></TextBlock>
-        <TextBlock  Grid.Row="9" Grid.Column="1" Text="Téléphone: "></TextBlock>
-        <TextBlock  Grid.Row="10" Grid.Column="1" Text="Email: "></TextBlock>
-        <TextBlock  Grid.Row="11" Grid.Column="1" Text="Type du contrat: "></TextBlock>
-        <TextBlock  Grid.Row="12" Grid.Column="1" Text="Métier: "></TextBlock>
-        <TextBlock  Grid.Row="13" Grid.Column="1" Text="Domaine: "></TextBlock>
-        <TextBlock  Grid.Row="14" Grid.Column="1" Text="Client: "></TextBlock>
+        <TextBlock  Grid.Row="6" Grid.Column="1" Text="Description du poste*: "></TextBlock>
+        <TextBlock  Grid.Row="7" Grid.Column="1" Text="Description du profil*: "></TextBlock>
+        <TextBlock  Grid.Row="8" Grid.Column="1" Text="Téléphone: "></TextBlock>
+        <TextBlock  Grid.Row="9" Grid.Column="1" Text="Email: "></TextBlock>
+        <TextBlock  Grid.Row="10" Grid.Column="1" Text="Type du contrat: "></TextBlock>
+        <TextBlock  Grid.Row="11" Grid.Column="1" Text="Métier: "></TextBlock>
+        <TextBlock  Grid.Row="12" Grid.Column="1" Text="Domaine: "></TextBlock>
+        <TextBlock  Grid.Row="13" Grid.Column="1" Text="Client: "></TextBlock>
 
         <TextBox Grid.Row="1" Grid.Column="2" Margin="2" Text="{Binding Offre.Intitule}"></TextBox>
-        <TextBox Grid.Row="2" Grid.Column="2" Margin="2" Text="{Binding Offre.Reference}"></TextBox>
-        <DatePicker Grid.Row="3" Grid.Column="2" Margin="2" SelectedDate="{Binding Offre.DatePublication}"></DatePicker>
-        <DatePicker Grid.Row="4" Grid.Column="2" Margin="2" Text="{Binding Offre.DateDebutContrat}"></DatePicker>
+        <DatePicker Grid.Row="2" Grid.Column="2" Margin="2" SelectedDate="{Binding Offre.DatePublication}"></DatePicker>
+        <DatePicker Grid.Row="3" Grid.Column="2" Margin="2" SelectedDate="{Binding Offre.DateDebutContrat}"></DatePicker>
+        <TextBox Grid.Row="4" Grid.Column="2" Margin="2" Text="{Binding Offre.NbPostes}"></TextBox>
         <TextBox Grid.Row="5" Grid.Column="2" Margin="2" Text="{Binding Offre.DureeDiffusion}"></TextBox>
-        <TextBox Grid.Row="6" Grid.Column="2" Margin="2" Text="{Binding Offre.NbPostes}"></TextBox>
-        <TextBox Grid.Row="7" Grid.Column="2" Margin="2" Text="{Binding Offre.DescriptionPoste}"></TextBox>
-        <TextBox Grid.Row="8" Grid.Column="2" Margin="2" Text="{Binding Offre.DescriptionProfil}"></TextBox>
-        <TextBox Grid.Row="9" Grid.Column="2" Margin="2" Text="{Binding Offre.Telephone}"></TextBox>
-        <TextBox Grid.Row="10" Grid.Column="2" Margin="2" Text="{Binding Offre.Email}"></TextBox>
+        <TextBox Grid.Row="6" Grid.Column="2" Margin="2" Text="{Binding Offre.DescriptionPoste}"></TextBox>
+        <TextBox Grid.Row="7" Grid.Column="2" Margin="2" Text="{Binding Offre.DescriptionProfil}"></TextBox>
+        <TextBox Grid.Row="8" Grid.Column="2" Margin="2" Text="{Binding Offre.Telephone}"></TextBox>
+        <TextBox Grid.Row="9" Grid.Column="2" Margin="2" Text="{Binding Offre.Email}"></TextBox>
         
-        <ComboBox Grid.Row="11" Grid.Column="2" x:Name="listContrats" ItemsSource="{Binding TypeContrats}" SelectedItem="{Binding Offre.TypeContrat}">
+        <ComboBox Grid.Row="10" Grid.Column="2" x:Name="listContrats" ItemsSource="{Binding TypeContrats}" SelectedItem="{Binding Offre.TypeContrat}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -65,7 +62,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <ComboBox Grid.Row="12" Grid.Column="2" x:Name="listMetiers" ItemsSource="{Binding Metiers}" SelectedItem="{Binding Offre.Metier}">
+        <ComboBox Grid.Row="11" Grid.Column="2" x:Name="listMetiers" ItemsSource="{Binding Metiers}" SelectedItem="{Binding Offre.Metier}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -75,7 +72,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <ComboBox Grid.Row="13" Grid.Column="2" x:Name="listDomaines" ItemsSource="{Binding DomaineMetiers}" SelectedItem="{Binding Offre.DomaineMetier}">
+        <ComboBox Grid.Row="12" Grid.Column="2" x:Name="listDomaines" ItemsSource="{Binding DomaineMetiers}" SelectedItem="{Binding Offre.DomaineMetier}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -85,7 +82,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <ComboBox Grid.Row="14" Grid.Column="2" x:Name="listClients" ItemsSource="{Binding Clients}" SelectedItem="{Binding Offre.Client}">
+        <ComboBox Grid.Row="13" Grid.Column="2" x:Name="listClients" ItemsSource="{Binding Clients}" SelectedItem="{Binding Offre.Client}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -95,7 +92,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <StackPanel Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="4"
+        <StackPanel Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="4"
                         Orientation="Horizontal" 
                         FlowDirection="RightToLeft" 
                         VerticalAlignment="Bottom">

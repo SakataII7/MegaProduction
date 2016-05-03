@@ -31,52 +31,37 @@ namespace MegaProduction
         private void Client_Click(object sender, RoutedEventArgs e)
         {
             ClientWindow clientWindow = new ClientWindow(db);
-
-            if (clientWindow.ShowDialog() == true)
-            {
-
-            }
+            clientWindow.ShowDialog();
         }
 
         private void Offre_Click(object sender, RoutedEventArgs e)
         {
             OffreWindow offreWindow = new OffreWindow(db);
-
-            if (offreWindow.ShowDialog() == true)
-            {
-
-            }
+            offreWindow.ShowDialog();
         }
 
         private void Pack_Click(object sender, RoutedEventArgs e)
         {
             PackWindow packWindow = new PackWindow(db);
-
-            if (packWindow.ShowDialog() == true)
-            {
-
-            }
+            packWindow.ShowDialog();
         }
 
         private void Partenaire_Click(object sender, RoutedEventArgs e)
         {
             PartenaireWindow partenaireWindow = new PartenaireWindow(db);
-
-            if (partenaireWindow.ShowDialog() == true)
-            {
-
-            }
+            partenaireWindow.ShowDialog();
         }
 
         private void Domaine_Metier_Click(object sender, RoutedEventArgs e)
         {
             DomaineMetierWindow domaineMetierWindow = new DomaineMetierWindow(db);
-
-            if (domaineMetierWindow.ShowDialog() == true)
-            {
-
-            }
+            domaineMetierWindow.ShowDialog();
         }
 
+        private void Type_Contrat_Click(object sender, RoutedEventArgs e)
+        {
+            TypeContratWindow typeContratWindow = new TypeContratWindow(db);
+            typeContratWindow.ShowDialog();
+        }
     }
 }

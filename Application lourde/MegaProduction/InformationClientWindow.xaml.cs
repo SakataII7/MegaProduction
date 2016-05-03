@@ -41,9 +41,17 @@ namespace MegaProduction
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
-            this.Client.IsDiffuseur = false;
-            this.Client.Pack = listPacks.SelectedItem as Pack;
-            this.DialogResult = true;
+            if (this.Client.Libelle == null || this.Client.Siret == null || this.Client.Adresse == null )
+            {
+                MessageBox.Show("Veuillez remplir les champs obligatoires *");
+            }
+            else
+            {
+                this.Client.IsDiffuseur = false;
+                this.Client.Pack = listPacks.SelectedItem as Pack;
+                this.DialogResult = true;
+            }
+            
         }
     }
 }

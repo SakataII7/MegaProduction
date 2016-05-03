@@ -24,16 +24,17 @@
             <Button Padding="5" x:Name="btn_Supprimer" Click="btn_Supprimer_Click" Grid.Column="2">Supprimer</Button>
         </Grid>
 
-        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ClientsNonDiffuseur}" x:Name="listClients">
+        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Offres}" x:Name="listOffres">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Libelle}"/>
+                    <Label Content="{Binding Intitule}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
         <Grid Grid.Row="1" Grid.Column="1" >
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -59,14 +60,30 @@
             <Label Content="Date de publication :" Grid.Row="2" Grid.Column="0"></Label>
             <Label Content="Date de début de contrat :" Grid.Row="3" Grid.Column="0"></Label>
             <Label Content="Nombres de postes :" Grid.Row="4" Grid.Column="0"></Label>
-            <Label Content="Description du poste :" Grid.Row="5" Grid.Column="0"></Label>
-            <Label Content="Description du profil :" Grid.Row="6" Grid.Column="0"></Label>
-            <Label Content="Telephone :" Grid.Row="7" Grid.Column="0"></Label>
-            <Label Content="Email :" Grid.Row="8" Grid.Column="0"></Label>
-            <Label Content="Type de contrat :" Grid.Row="9" Grid.Column="0"></Label>
-            <Label Content="Métier :" Grid.Row="10" Grid.Column="0"></Label>
-            <Label Content="Domaine du Métier :" Grid.Row="11" Grid.Column="0"></Label>
-            <Label Content="Client :" Grid.Row="12" Grid.Column="0"></Label>
+            <Label Content="Durée de diffusion :" Grid.Row="5" Grid.Column="0"></Label>
+            <Label Content="Description du poste :" Grid.Row="6" Grid.Column="0"></Label>
+            <Label Content="Description du profil :" Grid.Row="7" Grid.Column="0"></Label>
+            <Label Content="Telephone :" Grid.Row="8" Grid.Column="0"></Label>
+            <Label Content="Email :" Grid.Row="9" Grid.Column="0"></Label>
+            <Label Content="Type de contrat :" Grid.Row="10" Grid.Column="0"></Label>
+            <Label Content="Métier :" Grid.Row="11" Grid.Column="0"></Label>
+            <Label Content="Domaine du Métier :" Grid.Row="12" Grid.Column="0"></Label>
+            <Label Content="Client :" Grid.Row="13" Grid.Column="0"></Label>
+
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Intitule}"></Label>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Reference}"></Label>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DatePublication}"></Label>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DateDebutContrat}"></Label>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.NbPostes}"></Label>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DureeDiffusion}"></Label>
+            <Label Grid.Row="6" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DescriptionPoste}"></Label>
+            <Label Grid.Row="7" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DescriptionProfil}"></Label>
+            <Label Grid.Row="8" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Telephone}"></Label>
+            <Label Grid.Row="9" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Email}"></Label>
+            <Label Grid.Row="10" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.TypeContrat.Libelle}"></Label>
+            <Label Grid.Row="11" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Metier.Libelle}"></Label>
+            <Label Grid.Row="12" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DomaineMetier.Libelle}"></Label>
+            <Label Grid.Row="13" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Client.Libelle}"></Label>
         </Grid>
         
     </Grid>

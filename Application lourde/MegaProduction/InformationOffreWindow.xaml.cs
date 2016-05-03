@@ -28,11 +28,15 @@ namespace MegaProduction
         public ObservableCollection<TypeContrat> TypeContrats { get; set; }
         public ObservableCollection<Client> Clients { get; set; }
 
-        public InformationOffreWindow(Offre offre, MegaCastingsEntities context)
+        public InformationOffreWindow(MegaCastingsEntities context ,Offre offre)
         {
             InitializeComponent();
             db = context;
             this.Offre = offre;
+            if (this.Offre.DateDebutContrat == new DateTime())
+                this.Offre.DateDebutContrat = DateTime.Now;
+            if (this.Offre.DatePublication == new DateTime())
+                this.Offre.DatePublication = DateTime.Now;
             this.DomaineMetiers = new ObservableCollection<DomaineMetier>(db.DomaineMetiers.ToList());
             this.Metiers = new ObservableCollection<Metier>(db.Metiers.ToList());
             this.TypeContrats = new ObservableCollection<TypeContrat>(db.TypeContrats.ToList());
@@ -47,7 +51,19 @@ namespace MegaProduction
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
-
+            if(this.Offre.Intitule == null || this.Offre.DatePublication == null || this.Offre.DureeDiffusion == 0 || this.Offre.NbPostes == 0 || this.Offre.DescriptionPoste == null || this.Offre.DescriptionProfil == null)
+            {
+                MessageBox.Show("Veuillez remplir les champs obligatoires *");
+            }
+            else
+            {
+                if(this.Offre.Reference == null)
+                {
+                    Random rand = new Random();
+                    this.Offre.Reference = "REF_" + rand.Next(0, 999999999) + "_" + this.Offre.Identifiant;
+                }
+                this.DialogResult = true;
+            }
         }
     }
 }
