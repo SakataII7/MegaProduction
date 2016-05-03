@@ -1,6 +1,8 @@
 package MegaCasting.classes;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -9,7 +11,7 @@ import java.util.Objects;
  */
 public class Offre {
     
-    protected int Identifiant;
+    protected Long Identifiant;
     protected String Intitule;
     protected String Reference;
     protected Date DatePublication;
@@ -21,18 +23,13 @@ public class Offre {
     protected String Telephone;
     protected String Email;
 
-    public Offre(int Identifiant, String Intitule, Date DatePublication, int NbPostes) {
-        this.Identifiant = Identifiant;
-        this.Intitule = Intitule;
-        this.DatePublication = DatePublication;
-        this.NbPostes = NbPostes;
-    }
+    
 
-    public int getIdentifiant() {
+    public long getIdentifiant() {
         return Identifiant;
     }
 
-    public void setIdentifiant(int Identifiant) {
+    public void setIdentifiant(long Identifiant) {
         this.Identifiant = Identifiant;
     }
 
@@ -118,20 +115,21 @@ public class Offre {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.Identifiant;
-        hash = 97 * hash + Objects.hashCode(this.Intitule);
-        hash = 97 * hash + Objects.hashCode(this.Reference);
-        hash = 97 * hash + Objects.hashCode(this.DatePublication);
-        hash = 97 * hash + Objects.hashCode(this.DateDebutContrat);
-        hash = 97 * hash + this.DureeDiffusion;
-        hash = 97 * hash + this.NbPostes;
-        hash = 97 * hash + Objects.hashCode(this.DescriptionPoste);
-        hash = 97 * hash + Objects.hashCode(this.DescriptionProfil);
-        hash = 97 * hash + Objects.hashCode(this.Telephone);
-        hash = 97 * hash + Objects.hashCode(this.Email);
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.Identifiant);
+        hash = 79 * hash + Objects.hashCode(this.Intitule);
+        hash = 79 * hash + Objects.hashCode(this.Reference);
+        hash = 79 * hash + Objects.hashCode(this.DatePublication);
+        hash = 79 * hash + Objects.hashCode(this.DateDebutContrat);
+        hash = 79 * hash + this.DureeDiffusion;
+        hash = 79 * hash + this.NbPostes;
+        hash = 79 * hash + Objects.hashCode(this.DescriptionPoste);
+        hash = 79 * hash + Objects.hashCode(this.DescriptionProfil);
+        hash = 79 * hash + Objects.hashCode(this.Telephone);
+        hash = 79 * hash + Objects.hashCode(this.Email);
         return hash;
     }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -176,10 +174,6 @@ public class Offre {
             return false;
         }
         return true;
-    }
-
-
-   
-    
+    }   
 }
 
