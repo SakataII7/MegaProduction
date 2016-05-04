@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<channel>
+  <title>Offre MegaCastings</title>
+  <link>172.16.1.149/MegaCasting/accueil</link>
+  <item>
+    <title>Test</title>
+    <reference>ABC</reference>
+    <pubDate>2015-01-12</pubDate>
+    <DateDebutContrat>2015-02-01</DateDebutContrat>
+    <DureeDiffusion>20</DureeDiffusion>
+    <NombrePoste>1</NombrePoste>
+    <descriptionPoste>N'imp</descriptionPoste>
+    <descriptionProfil>N'imp bis</descriptionProfil>
+    <tel>0253456125</tel>
+    <mail>test@nimp</mail>
+    <typeContrat>CDI</typeContrat>
+    <domaine>Danse</domaine>
+    <metier>Danseur</metier>
+    <client>Client1</client>
+  </item>
+  <item>
+    <title>ContratTest2</title>
+    <reference>Ref1</reference>
+    <pubDate>2016-01-11</pubDate>
+    <DateDebutContrat>2016-01-31</DateDebutContrat>
+    <DureeDiffusion>30</DureeDiffusion>
+    <NombrePoste>2</NombrePoste>
+    <descriptionPoste>Un poste</descriptionPoste>
+    <descriptionProfil>Deux profils</descriptionProfil>
+    <tel>123456</tel>
+    <mail>nimportequoi@test</mail>
+    <typeContrat>CDD</typeContrat>
+    <domaine>Cinema</domaine>
+    <metier>Acteur</metier>
+    <client>Client2</client>
+  </item>
+  <item>
+    <title>UnNouveau</title>
+    <reference>RefBis</reference>
+    <pubDate>2016-01-31</pubDate>
+    <DateDebutContrat>2016-02-01</DateDebutContrat>
+    <DureeDiffusion>1</DureeDiffusion>
+    <NombrePoste>5</NombrePoste>
+    <descriptionPoste>The Description</descriptionPoste>
+    <descriptionProfil>Nice Description !</descriptionProfil>
+    <tel>456789</tel>
+    <mail>email@contrat.com</mail>
+    <typeContrat>CDI</typeContrat>
+    <domaine>Cinema</domaine>
+    <metier>Acteur</metier>
+    <client>Client2</client>
+  </item>
+  <item>
+    <title>NombreMaxLettre</title>
+    <reference>Hey</reference>
+    <pubDate>2016-04-01</pubDate>
+    <DateDebutContrat>2016-06-01</DateDebutContrat>
+    <DureeDiffusion>60</DureeDiffusion>
+    <NombrePoste>50</NombrePoste>
+    <descriptionPoste>Figurants</descriptionPoste>
+    <descriptionProfil>Banal</descriptionProfil>
+    <tel>321654987</tel>
+    <mail>email@figurant.fr</mail>
+    <typeContrat>CDD</typeContrat>
+    <domaine>Danse</domaine>
+    <metier>Danseur</metier>
+    <client>Client2</client>
+  </item>
+  <item>
+    <title>Recherche Danseur</title>
+    <reference>fdsq</reference>
+    <pubDate>2016-04-02</pubDate>
+    <DateDebutContrat>2016-06-01</DateDebutContrat>
+    <DureeDiffusion>50</DureeDiffusion>
+    <NombrePoste>1</NombrePoste>
+    <descriptionPoste>rezfzeqfez</descriptionPoste>
+    <descriptionProfil>fezfefqzef</descriptionProfil>
+    <tel>1231231</tel>
+    <mail>dqdsffdq</mail>
+    <typeContrat>CDI</typeContrat>
+    <domaine>Danse</domaine>
+    <metier>Danseur</metier>
+    <client>Client1</client>
+  </item>
+  <item>
+    <title>Musicien</title>
+    <reference>fdsfdq2</reference>
+    <pubDate>2016-04-02</pubDate>
+    <DateDebutContrat>2016-06-05</DateDebutContrat>
+    <DureeDiffusion>50</DureeDiffusion>
+    <NombrePoste>1</NombrePoste>
+    <descriptionPoste>fgssssssssssssssss</descriptionPoste>
+    <descriptionProfil>ezfafezfzaef</descriptionProfil>
+    <tel>defze</tel>
+    <mail>ezfzefzefez</mail>
+    <typeContrat>CDD</typeContrat>
+    <domaine>Cinema</domaine>
+    <metier>Acteur</metier>
+    <client>Client1</client>
+  </item>
+  <item>
+    <title>SansDomaine</title>
+    <reference>null</reference>
+    <pubDate>2018-05-01</pubDate>
+    <DateDebutContrat>2016-04-01</DateDebutContrat>
+    <DureeDiffusion>10</DureeDiffusion>
+    <NombrePoste>10</NombrePoste>
+    <descriptionPoste>Y a pas de domaine</descriptionPoste>
+    <descriptionProfil>attention pas de domaine</descriptionProfil>
+    <tel>dsfqgfrq</tel>
+    <mail>dffdsfq</mail>
+    <typeContrat>CDI</typeContrat>
+    <domaine>null</domaine>
+    <metier>null</metier>
+    <client>Client2</client>
+  </item>
+</channel>

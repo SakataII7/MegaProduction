@@ -48,6 +48,7 @@ public class ConnexionServlet extends HttpServlet {
 
         String login = req.getParameter("login");
         String password = req.getParameter("password");
+        
         String message = "";
         Statement stmt = null;
         
@@ -75,7 +76,8 @@ public class ConnexionServlet extends HttpServlet {
 
                     if (login.equals(loginDB) && password.equals(passwordDB)) //Quand le login et le password correspond
                     {
-                        RequestDispatcher rq = req.getRequestDispatcher("Pages/FluxRSS.jsp");
+                       
+                        RequestDispatcher rq = req.getRequestDispatcher("rss");
                         rq.forward(req, resp);
                         erreur = false;
                         break;

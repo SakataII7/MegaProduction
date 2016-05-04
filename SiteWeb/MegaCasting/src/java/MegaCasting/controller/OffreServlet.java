@@ -53,6 +53,7 @@ public class OffreServlet extends HttpServlet {
         
         try {
             
+            //Préparation des valeurs
             String intitule = null;
             String reference = null;
             Date datePublication = null;
@@ -68,7 +69,7 @@ public class OffreServlet extends HttpServlet {
             String DomaineMetier = null;
             String Client = null;
             
-            //On cherche les produits de la catégorie dont on a récupéré l'id
+            //On cherche les infos de l'offre dont on a récupéré l'id
             pstmt = cnx.prepareStatement("SELECT Intitule, Reference, DatePublication, DateDebutContrat, DureeDiffusion, NbPostes, DescriptionPoste, DescriptionProfil, Offre.Telephone, Offre.Email, Metier.Libelle AS Metier, DomaineMetier.Libelle AS Domaine, TypeContrat.Libelle AS Type, Client.Libelle AS Client FROM Offre LEFT JOIN Metier ON IdentifiantMetier = Metier.Identifiant LEFT JOIN DomaineMetier ON Metier.IdentifiantDomaineMetier = DomaineMetier.Identifiant LEFT JOIN Client ON Offre.IdentifiantClient = Client.Identifiant LEFT JOIN TypeContrat ON Offre.IdentifiantTypeContrat = TypeContrat.Identifiant WHERE Offre.Identifiant = ?"); 
             pstmt.setLong(1, idOffre);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
