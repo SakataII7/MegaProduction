@@ -28,15 +28,6 @@
             </Grid.ColumnDefinitions>
             
             <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">Domaines</Label>
-            
-            <!--Affichage des Domaines-->
-            <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding DomaineMetiers}" x:Name="listDomaines">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Label Content="{Binding Libelle}"/>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
 
             <!--Affichage des boutons-->
             <Button Padding="5" x:Name="btn_Ajouter_Domaine" Click="btn_Ajouter_Domaine_Click" Grid.Column="0" Grid.Row="1">Ajouter</Button>
@@ -44,6 +35,15 @@
             <Button Padding="5" x:Name="btn_Supprimer_Domaine" Click="btn_Supprimer_Domaine_Click" Grid.Column="2" Grid.Row="1">Supprimer</Button>
         </Grid>
 
+        <!--Affichage des Domaines-->
+        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding DomaineMetiers}" x:Name="listDomaines">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Libelle}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
         <!--Menu de manipulation des Métiers-->
         <Grid Grid.Row="0" Grid.Column="1">
             <Grid.RowDefinitions>
