@@ -21,7 +21,7 @@ namespace MegaProduction
     /// </summary>
     public partial class OffreWindow : Window
     {
-        private MegaCastingsEntities db;
+        MegaCastingsEntities db = new MegaCastingsEntities();
         public ObservableCollection<Offre> Offres { get; set; }
         public Offre offre { get; set; }
 
@@ -36,25 +36,34 @@ namespace MegaProduction
         private void btn_Ajouter_Click(object sender, RoutedEventArgs e)
         {
             offre = new Offre();
-            InformationOffreWindow informationOffreWindow = new InformationOffreWindow(db,offre);
+            InformationOffreWindow informationOffreWindow = new InformationOffreWindow(offre,db);
 
             if (informationOffreWindow.ShowDialog() == true)
             {
+                //Ajout de l'offre en base de données
                 db.Offres.Add(informationOffreWindow.Offre);
+                //Ajout de l'offre dans la liste
                 this.Offres.Add(informationOffreWindow.Offre);
+                //Sauvegarde les changements
                 db.SaveChanges();
             }
         }
 
         private void btn_Modifier_Click(object sender, RoutedEventArgs e)
         {
-            offre = listOffres.SelectedItem as Offre;
-            int currentIndex = listOffres.SelectedIndex;
-            InformationOffreWindow informationOffreWindow = new InformationOffreWindow(db, offre);
-
-            if (informationOffreWindow.ShowDialog() == true)
+            if (listOffres.SelectedItem != null)
             {
-                db.SaveChanges();
+                //Prend l'offre sélectionnée
+                offre = listOffres.SelectedItem as Offre;
+                //Prend l'index de l'offre sélectionnée
+                int currentIndex = listOffres.SelectedIndex;
+                InformationOffreWindow informationOffreWindow = new InformationOffreWindow(offre,db);
+
+                if (informationOffreWindow.ShowDialog() == true)
+                {
+                    //sauvegarde les changements
+                    db.SaveChanges();
+                }
             }
         }
 
@@ -62,12 +71,17 @@ namespace MegaProduction
         {
             if (listOffres.SelectedItem != null)
             {
+                //Prend l'offre sélectionnée
                 offre = listOffres.SelectedItem as Offre;
+                //Prend l'index de l'offre sélectionnée
                 int currentIndex = listOffres.SelectedIndex;
+                //Supprime l'offre dans la base de données
                 db.Offres.Remove(offre);
+                //Supprime l'offre dans liste
                 this.Offres.Remove(offre);
                 listOffres.SelectedIndex = currentIndex;
                 listOffres.Focus();
+                //Sauvegarde les changements
                 db.SaveChanges();
             }
         }

@@ -21,7 +21,7 @@ namespace MegaProduction
     /// </summary>
     public partial class TypeContratWindow : Window
     {
-        private MegaCastingsEntities db;
+        MegaCastingsEntities db = new MegaCastingsEntities();
         public ObservableCollection<TypeContrat> TypeContrats { get; set; }
         public TypeContrat typeContrat { get; set; }
 
@@ -36,25 +36,34 @@ namespace MegaProduction
         private void btn_Ajouter_Click(object sender, RoutedEventArgs e)
         {
             typeContrat = new TypeContrat();
-            InformationTypeContratWindow informationTypeContratWindow = new InformationTypeContratWindow(db, typeContrat);
+            InformationTypeContratWindow informationTypeContratWindow = new InformationTypeContratWindow(typeContrat);
 
             if (informationTypeContratWindow.ShowDialog() == true)
             {
+                //Ajout du type contrat en base de données
                 db.TypeContrats.Add(informationTypeContratWindow.TypeContrat);
+                //Ajout du type contrat dans la liste
                 this.TypeContrats.Add(informationTypeContratWindow.TypeContrat);
+                //Sauvegarde les changements
                 db.SaveChanges();
             }
         }
 
         private void btn_Modifier_Click(object sender, RoutedEventArgs e)
         {
-            typeContrat = listTypeContrats.SelectedItem as TypeContrat;
-            int currentIndex = listTypeContrats.SelectedIndex;
-            InformationTypeContratWindow informationTypeContratWindow = new InformationTypeContratWindow(db, typeContrat);
-
-            if (informationTypeContratWindow.ShowDialog() == true)
+            if (listTypeContrats.SelectedItem != null)
             {
-                db.SaveChanges();
+                //Prend le type contrat sélectionné
+                typeContrat = listTypeContrats.SelectedItem as TypeContrat;
+                //Prend l'index du type contrat sélectionné
+                int currentIndex = listTypeContrats.SelectedIndex;
+                InformationTypeContratWindow informationTypeContratWindow = new InformationTypeContratWindow(typeContrat);
+
+                if (informationTypeContratWindow.ShowDialog() == true)
+                {
+                    //Sauvegarde les changements
+                    db.SaveChanges();
+                }
             }
         }
 
@@ -62,12 +71,17 @@ namespace MegaProduction
         {
             if (listTypeContrats.SelectedItem != null)
             {
+                //Prend le type contrat sélectionné
                 typeContrat = listTypeContrats.SelectedItem as TypeContrat;
+                //Prend l'index du type contrat sélectionné
                 int currentIndex = listTypeContrats.SelectedIndex;
+                //Supprime le type contrat dans la base de données
                 db.TypeContrats.Remove(typeContrat);
+                // Supprime le type contrat dans liste
                 this.TypeContrats.Remove(typeContrat);
                 listTypeContrats.SelectedIndex = currentIndex;
                 listTypeContrats.Focus();
+                //Sauvegarde les changements
                 db.SaveChanges();
             }
         }

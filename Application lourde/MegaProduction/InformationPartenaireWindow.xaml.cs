@@ -21,34 +21,41 @@ namespace MegaProduction
     /// </summary>
     public partial class InformationPartenaireWindow : Window
     {
-        private MegaCastingsEntities db;
+        MegaCastingsEntities db = new MegaCastingsEntities();
         public Client Client { get; set; }
         public Connexion Connexion { get; set; }
 
         public InformationPartenaireWindow(Client client, MegaCastingsEntities context)
         {
             InitializeComponent();
-            db = context;
             this.Client = client;
+            db = context;
             this.Connexion = new Connexion();
             this.DataContext = this;
         }
 
         private void BTN_Cancel_Click(object sender, RoutedEventArgs e)
         {
+            //Ferme la fenêtre
             Close();
         }
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Client.Libelle == null || this.Client.Adresse == null || this.Client.Siret == null)
+            //Vérifie les champs obligatoires
+            if (this.Client.Libelle == null || this.Client.Siret == null || this.Connexion.Login == null || this.Connexion.Password == null)
             {
                 MessageBox.Show("Veuillez remplir les champs obligatoires *");
             }
             else
             {
                 this.Client.IsDiffuseur = true;
-                this.Client.IdentifiantConnexion = this.Connexion.Identifiant;
+
+                //Evite les problèmes lors de la modification
+                if (this.Client.IdentifiantConnexion == null)
+                {
+                    this.Client.IdentifiantConnexion = this.Connexion.Identifiant;
+                }
                 this.DialogResult = true;
             }
         }

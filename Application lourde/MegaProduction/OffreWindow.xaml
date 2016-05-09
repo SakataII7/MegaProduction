@@ -1,7 +1,8 @@
 ﻿<Window x:Class="MegaProduction.OffreWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="OffreWindow" Height="600" Width="850">
+        Title="Offres" Height="600" Width="850"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -9,21 +10,25 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*" ></ColumnDefinition>
-            <ColumnDefinition Width="50*" ></ColumnDefinition>
+            <ColumnDefinition Width="25*" ></ColumnDefinition>
+            <ColumnDefinition Width="75*" ></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <!--Menu de manipulation des offres-->
         <Grid Grid.Row="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="33*" ></ColumnDefinition>
                 <ColumnDefinition Width="33*" ></ColumnDefinition>
                 <ColumnDefinition Width="33*" ></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            
+            <!--Affichage des boutons-->
             <Button Padding="5" x:Name="btn_Ajouter" Click="btn_Ajouter_Click" Grid.Column="0">Ajouter</Button>
             <Button Padding="5" x:Name="btn_Modifier" Click="btn_Modifier_Click" Grid.Column="1">Modifier</Button>
             <Button Padding="5" x:Name="btn_Supprimer" Click="btn_Supprimer_Click" Grid.Column="2">Supprimer</Button>
         </Grid>
 
+        <!--Affichage des offres-->
         <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Offres}" x:Name="listOffres">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -32,59 +37,64 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Grid Grid.Row="1" Grid.Column="1" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
+        <!--Affichage détaillé de l'offre sélectionnée-->
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50*" ></ColumnDefinition>
-                <ColumnDefinition Width="50*" ></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" ></ColumnDefinition>
+                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-            <Label Content="Intitule :" Grid.Row="0" Grid.Column="0"></Label>
-            <Label Content="Reference :" Grid.Row="1" Grid.Column="0"></Label>
-            <Label Content="Date de publication :" Grid.Row="2" Grid.Column="0"></Label>
-            <Label Content="Date de début de contrat :" Grid.Row="3" Grid.Column="0"></Label>
-            <Label Content="Nombres de postes :" Grid.Row="4" Grid.Column="0"></Label>
-            <Label Content="Durée de diffusion :" Grid.Row="5" Grid.Column="0"></Label>
-            <Label Content="Description du poste :" Grid.Row="6" Grid.Column="0"></Label>
-            <Label Content="Description du profil :" Grid.Row="7" Grid.Column="0"></Label>
-            <Label Content="Telephone :" Grid.Row="8" Grid.Column="0"></Label>
-            <Label Content="Email :" Grid.Row="9" Grid.Column="0"></Label>
-            <Label Content="Type de contrat :" Grid.Row="10" Grid.Column="0"></Label>
-            <Label Content="Métier :" Grid.Row="11" Grid.Column="0"></Label>
-            <Label Content="Domaine du Métier :" Grid.Row="12" Grid.Column="0"></Label>
-            <Label Content="Client :" Grid.Row="13" Grid.Column="0"></Label>
+                <!--Champs de l'offre sélectionnée-->
+                <Label Content="Intitule :" Grid.Row="0" Grid.Column="0"></Label>
+                <Label Content="Reference :" Grid.Row="1" Grid.Column="0"></Label>
+                <Label Content="Date de publication :" Grid.Row="2" Grid.Column="0"></Label>
+                <Label Content="Date de début de contrat :" Grid.Row="3" Grid.Column="0"></Label>
+                <Label Content="Nombres de postes :" Grid.Row="4" Grid.Column="0"></Label>
+                <Label Content="Durée de diffusion :" Grid.Row="5" Grid.Column="0"></Label>
+                <Label Content="Description du poste :" Grid.Row="6" Grid.Column="0"></Label>
+                <Label Content="Description du profil :" Grid.Row="7" Grid.Column="0"></Label>
+                <Label Content="Telephone :" Grid.Row="8" Grid.Column="0"></Label>
+                <Label Content="Email :" Grid.Row="9" Grid.Column="0"></Label>
+                <Label Content="Type de contrat :" Grid.Row="10" Grid.Column="0"></Label>
+                <Label Content="Métier :" Grid.Row="11" Grid.Column="0"></Label>
+                <Label Content="Domaine du Métier :" Grid.Row="12" Grid.Column="0"></Label>
+                <Label Content="Client :" Grid.Row="13" Grid.Column="0"></Label>
 
-            <Label Grid.Row="0" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Intitule}"></Label>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Reference}"></Label>
-            <Label Grid.Row="2" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DatePublication}"></Label>
-            <Label Grid.Row="3" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DateDebutContrat}"></Label>
-            <Label Grid.Row="4" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.NbPostes}"></Label>
-            <Label Grid.Row="5" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DureeDiffusion}"></Label>
-            <Label Grid.Row="6" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DescriptionPoste}"></Label>
-            <Label Grid.Row="7" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DescriptionProfil}"></Label>
-            <Label Grid.Row="8" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Telephone}"></Label>
-            <Label Grid.Row="9" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Email}"></Label>
-            <Label Grid.Row="10" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.TypeContrat.Libelle}"></Label>
-            <Label Grid.Row="11" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Metier.Libelle}"></Label>
-            <Label Grid.Row="12" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DomaineMetier.Libelle}"></Label>
-            <Label Grid.Row="13" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Client.Libelle}"></Label>
-        </Grid>
-        
+                <!--Caractéristiques de l'offre sélectionnée-->
+                <Label Grid.Row="0" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Intitule}"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Reference}"></Label>
+                <Label Grid.Row="2" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DatePublication}"></Label>
+                <Label Grid.Row="3" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DateDebutContrat}"></Label>
+                <Label Grid.Row="4" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.NbPostes}"></Label>
+                <Label Grid.Row="5" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DureeDiffusion}"></Label>
+                <Label Grid.Row="6" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DescriptionPoste}"></Label>
+                <Label Grid.Row="7" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DescriptionProfil}"></Label>
+                <Label Grid.Row="8" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Telephone}"></Label>
+                <Label Grid.Row="9" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Email}"></Label>
+                <Label Grid.Row="10" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.TypeContrat.Libelle}"></Label>
+                <Label Grid.Row="11" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Metier.Libelle}"></Label>
+                <Label Grid.Row="12" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.DomaineMetier.Libelle}"></Label>
+                <Label Grid.Row="13" Grid.Column="1" Content="{Binding ElementName=listOffres, Path=SelectedItem.Client.Libelle}"></Label>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>

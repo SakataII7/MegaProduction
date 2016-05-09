@@ -13,7 +13,9 @@
           <Property Name="Libelle" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Telephone" Type="nvarchar" MaxLength="20" />
           <Property Name="Email" Type="nvarchar" MaxLength="250" />
-          <Property Name="Adresse" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Adresse" Type="nvarchar" MaxLength="250" />
+          <Property Name="Ville" Type="nvarchar" MaxLength="250" />
+          <Property Name="CodePostal" Type="nvarchar" MaxLength="50" />
           <Property Name="Siret" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="URL" Type="nvarchar" MaxLength="250" />
           <Property Name="Fax" Type="nvarchar" MaxLength="250" />
@@ -249,7 +251,9 @@
           <Property Name="Libelle" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Adresse" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Adresse" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Ville" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CodePostal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Siret" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="URL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Fax" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -428,6 +432,8 @@
                 <ScalarProperty Name="Fax" ColumnName="Fax" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
                 <ScalarProperty Name="Siret" ColumnName="Siret" />
+                <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
                 <ScalarProperty Name="Adresse" ColumnName="Adresse" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Telephone" ColumnName="Telephone" />

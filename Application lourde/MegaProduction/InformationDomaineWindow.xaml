@@ -1,33 +1,39 @@
 ﻿<Window x:Class="MegaProduction.InformationDomaineWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="InformationDomaineWindow" Height="350" Width="450">
-    <Grid>
+        Title="Information Domaine" Height="350" Width="450"
+        WindowStartupLocation="CenterScreen">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50*" ></ColumnDefinition>
-                <ColumnDefinition Width="100" ></ColumnDefinition>
-                <ColumnDefinition Width="200" ></ColumnDefinition>
-                <ColumnDefinition Width="50*" ></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*" ></ColumnDefinition>
+                    <ColumnDefinition Width="100" ></ColumnDefinition>
+                    <ColumnDefinition Width="200" ></ColumnDefinition>
+                    <ColumnDefinition Width="50*" ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50*" ></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="50*"></RowDefinition>
-            </Grid.RowDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*" ></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="50*"></RowDefinition>
+                </Grid.RowDefinitions>
 
-            <TextBlock  Grid.Row="1" Grid.Column="1" Text="Libelle*: "></TextBlock>
+                <!--Champ du domaine-->
+                <TextBlock  Grid.Row="1" Grid.Column="1" Text="Libelle*: "></TextBlock>
 
-            <TextBox Grid.Row="1" Grid.Column="2" Margin="2" Text="{Binding DomaineMetier.Libelle}"></TextBox>
+                <!--Caractéristique du domaine-->
+                <TextBox Grid.Row="1" Grid.Column="2" Margin="2" Text="{Binding DomaineMetier.Libelle}"></TextBox>
 
-            <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
+                <!--Bouton de validation et d'annulation-->
+                <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
                         Orientation="Horizontal" 
                         FlowDirection="RightToLeft" 
                         VerticalAlignment="Bottom">
-                <Button  x:Name="BTN_Cancel" Content="Annuler" Margin="2" Click="BTN_Cancel_Click"></Button>
-                <Button  x:Name="BTN_Ok" Content="OK" Margin="2" Click="BTN_Ok_Click"></Button>
-            </StackPanel>
+                    <Button  x:Name="BTN_Cancel" Content="Annuler" Margin="2" Click="BTN_Cancel_Click"></Button>
+                    <Button  x:Name="BTN_Ok" Content="OK" Margin="2" Click="BTN_Ok_Click"></Button>
+                </StackPanel>
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollViewer>
 </Window>

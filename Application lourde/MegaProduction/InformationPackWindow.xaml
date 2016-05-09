@@ -1,37 +1,40 @@
 ﻿<Window x:Class="MegaProduction.InformationPackWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="InformationPackWindow" Height="350" Width="450">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*" ></ColumnDefinition>
-            <ColumnDefinition Width="100" ></ColumnDefinition>
-            <ColumnDefinition Width="200" ></ColumnDefinition>
-            <ColumnDefinition Width="50*" ></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+        Title="Information Pack" Height="350" Width="450"
+        WindowStartupLocation="CenterScreen">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*" ></ColumnDefinition>
+                <ColumnDefinition Width="100" ></ColumnDefinition>
+                <ColumnDefinition Width="200" ></ColumnDefinition>
+                <ColumnDefinition Width="50*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50*" ></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="50*"></RowDefinition>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*" ></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="50*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <!--Nom caractéristique du pack-->
-        <TextBlock  Grid.Row="1" Grid.Column="1" Text="Libelle*: "></TextBlock>
-        <TextBlock  Grid.Row="2" Grid.Column="1" Text="Prix: "></TextBlock>
+            <!--Champs du pack-->
+            <TextBlock  Grid.Row="1" Grid.Column="1" Text="Libelle*: "></TextBlock>
+            <TextBlock  Grid.Row="2" Grid.Column="1" Text="Prix: "></TextBlock>
 
-        <!--Caractéristique du pack-->
-        <TextBox Grid.Row="1" Grid.Column="2" Margin="2" Text="{Binding Pack.Libelle}"></TextBox>
-        <TextBox Grid.Row="2" Grid.Column="2" Margin="2" Text="{Binding Pack.Prix}"></TextBox>
+            <!--Caractéristiques du pack-->
+            <TextBox Grid.Row="1" Grid.Column="2" Margin="2" Text="{Binding Pack.Libelle}"></TextBox>
+            <TextBox Grid.Row="2" Grid.Column="2" Margin="2" Text="{Binding Pack.Prix}"></TextBox>
 
-        <!--Bouton de validation et d'annulation-->
-        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
+            <!--Bouton de validation et d'annulation-->
+            <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
                         Orientation="Horizontal" 
                         FlowDirection="RightToLeft" 
                         VerticalAlignment="Bottom">
-            <Button  x:Name="BTN_Cancel" Content="Annuler" Margin="2" Click="BTN_Cancel_Click"></Button>
-            <Button  x:Name="BTN_Ok" Content="OK" Margin="2" Click="BTN_Ok_Click"></Button>
-        </StackPanel>
-    </Grid>
+                <Button  x:Name="BTN_Cancel" Content="Annuler" Margin="2" Click="BTN_Cancel_Click"></Button>
+                <Button  x:Name="BTN_Ok" Content="OK" Margin="2" Click="BTN_Ok_Click"></Button>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Window>

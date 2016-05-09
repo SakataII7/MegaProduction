@@ -1,7 +1,8 @@
 ﻿<Window x:Class="MegaProduction.DomaineMetierWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="DomaineMetierWindow" Height="600" Width="850">
+        Title="Domaines/Métiers" Height="600" Width="850"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -13,46 +14,58 @@
             <ColumnDefinition Width="50*" ></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <!--Menu de manipulation des Domaines-->
         <Grid Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30*"></RowDefinition>
                 <RowDefinition Height="70*"></RowDefinition>
             </Grid.RowDefinitions>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="33*" ></ColumnDefinition>
                 <ColumnDefinition Width="33*" ></ColumnDefinition>
                 <ColumnDefinition Width="33*" ></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            
             <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">Domaines</Label>
+            
+            <!--Affichage des Domaines-->
+            <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding DomaineMetiers}" x:Name="listDomaines">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Libelle}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!--Affichage des boutons-->
             <Button Padding="5" x:Name="btn_Ajouter_Domaine" Click="btn_Ajouter_Domaine_Click" Grid.Column="0" Grid.Row="1">Ajouter</Button>
             <Button Padding="5" x:Name="btn_Modifier_Domaine" Click="btn_Modifier_Domaine_Click" Grid.Column="1" Grid.Row="1">Modifier</Button>
             <Button Padding="5" x:Name="btn_Supprimer_Domaine" Click="btn_Supprimer_Domaine_Click" Grid.Column="2" Grid.Row="1">Supprimer</Button>
         </Grid>
 
+        <!--Menu de manipulation des Métiers-->
         <Grid Grid.Row="0" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30*"></RowDefinition>
                 <RowDefinition Height="70*"></RowDefinition>
             </Grid.RowDefinitions>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="33*" ></ColumnDefinition>
                 <ColumnDefinition Width="33*" ></ColumnDefinition>
                 <ColumnDefinition Width="33*" ></ColumnDefinition>
             </Grid.ColumnDefinitions>
+
             <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">Métiers</Label>
+
+            <!--Affichage des boutons-->
             <Button Padding="5" x:Name="btn_Ajouter_Metier" Click="btn_Ajouter_Metier_Click" Grid.Column="0" Grid.Row="1">Ajouter</Button>
             <Button Padding="5" x:Name="btn_Modifier_Metier" Click="btn_Modifier_Metier_Click" Grid.Column="1" Grid.Row="1">Modifier</Button>
             <Button Padding="5" x:Name="btn_Supprimer_Metier" Click="btn_Supprimer_Metier_Click" Grid.Column="2" Grid.Row="1">Supprimer</Button>
         </Grid>
 
-        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding DomaineMetiers}" x:Name="listDomaines">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding Libelle}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
+        <!--Affichage des Métiers-->
         <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Metiers}" x:Name="listMetiers">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -60,6 +73,5 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
     </Grid>
 </Window>

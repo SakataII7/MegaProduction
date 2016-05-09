@@ -21,11 +21,11 @@ namespace MegaProduction
     /// </summary>
     public partial class InformationMetierWindow : Window
     {
-        private MegaCastingsEntities db;
+        MegaCastingsEntities db = new MegaCastingsEntities();
         public Metier Metier { get; set; }
         public ObservableCollection<DomaineMetier> DomaineMetiers { get; set; }
 
-        public InformationMetierWindow(MegaCastingsEntities context, Metier metier)
+        public InformationMetierWindow(Metier metier, MegaCastingsEntities context)
         {
             InitializeComponent();
             db = context;
@@ -36,11 +36,13 @@ namespace MegaProduction
 
         private void BTN_Cancel_Click(object sender, RoutedEventArgs e)
         {
+            //Ferme la fenêtre
             Close();
         }
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
+            //Vérifie les champs obligatoires
             if(this.Metier.Libelle == null)
             {
                 MessageBox.Show("Veuillez remplir le libelle");

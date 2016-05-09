@@ -22,7 +22,7 @@ namespace MegaProduction
     /// </summary>
     public partial class PackWindow : Window
     {
-        private MegaCastingsEntities db;
+        MegaCastingsEntities db = new MegaCastingsEntities();
         public ObservableCollection<Pack> Packs { get; set; }
         public Pack pack { get; set; }
 
@@ -41,8 +41,11 @@ namespace MegaProduction
 
             if (informationPackWindow.ShowDialog() == true)
             {
+                //Ajout du pack en base de données
                 db.Packs.Add(informationPackWindow.Pack);
+                //Ajout du pack dans la liste
                 this.Packs.Add(informationPackWindow.Pack);
+                //Sauvegarde les changements
                 db.SaveChanges();
                 
             }
@@ -52,25 +55,36 @@ namespace MegaProduction
         {
             if (listPacks.SelectedItem != null)
             {
+                //Prend le pack sélectionné
                 pack = listPacks.SelectedItem as Pack;
+                //Prend l'index du pack sélectionné
                 int currentIndex = listPacks.SelectedIndex;
+                //Supprime le pack dans la base de données
                 db.Packs.Remove(pack);
+                //Supprime le pack dans la liste
                 this.Packs.Remove(pack);
                 listPacks.SelectedIndex = currentIndex;
                 listPacks.Focus();
+                //Sauvegarde les changements
                 db.SaveChanges();
             }
         }
 
         private void btn_Modifier_Click(object sender, RoutedEventArgs e)
         {
-            pack = listPacks.SelectedItem as Pack;
-            int currentIndex = listPacks.SelectedIndex;
-            InformationPackWindow informationPackWindow = new InformationPackWindow(pack);
-
-            if (informationPackWindow.ShowDialog() == true)
+            if (listPacks.SelectedItem != null)
             {
-                db.SaveChanges();
+                //Prend le pack sélectionné
+                pack = listPacks.SelectedItem as Pack;
+                //Prend l'index du pack sélectionné
+                int currentIndex = listPacks.SelectedIndex;
+                InformationPackWindow informationPackWindow = new InformationPackWindow(pack);
+
+                if (informationPackWindow.ShowDialog() == true)
+                {
+                    //Sauvegarde les changements
+                    db.SaveChanges();
+                }
             }
         }
 

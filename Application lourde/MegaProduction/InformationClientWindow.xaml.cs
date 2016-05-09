@@ -21,27 +21,30 @@ namespace MegaProduction
     /// </summary>
     public partial class InformationClientWindow : Window
     {
-        public MegaCastingsEntities db;
+        MegaCastingsEntities db = new MegaCastingsEntities();
         public Client Client { get; set; }
         public ObservableCollection<Pack> Packs { get; set; }
 
         public InformationClientWindow(Client client, MegaCastingsEntities context)
         {
             InitializeComponent();
-            db = context;
+            //récupère le client
             this.Client = client;
+            db = context;
             this.Packs = new ObservableCollection<Pack>(db.Packs.ToList());
             this.DataContext = this;
         }
 
         private void BTN_Cancel_Click(object sender, RoutedEventArgs e)
         {
+            //Ferme la fenêtre
             Close();
         }
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Client.Libelle == null || this.Client.Siret == null || this.Client.Adresse == null )
+            //Vérifie les champs obligatoires
+            if (this.Client.Libelle == null || this.Client.Siret == null)
             {
                 MessageBox.Show("Veuillez remplir les champs obligatoires *");
             }

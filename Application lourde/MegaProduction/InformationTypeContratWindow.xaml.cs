@@ -20,25 +20,34 @@ namespace MegaProduction
     /// </summary>
     public partial class InformationTypeContratWindow : Window
     {
-        private MegaCastingsEntities db;
+        MegaCastingsEntities db = new MegaCastingsEntities();
         public TypeContrat TypeContrat { get; set; }
 
-        public InformationTypeContratWindow(MegaCastingsEntities context, TypeContrat typeContrat)
+        public InformationTypeContratWindow(TypeContrat typeContrat)
         {
             InitializeComponent();
-            db = context;
             this.TypeContrat = typeContrat;
             this.DataContext = this;
         }
 
         private void BTN_Cancel_Click(object sender, RoutedEventArgs e)
         {
+            //Ferme la fenêtre
             Close();
         }
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            //Vérifie les champs obligatoires
+            if(this.TypeContrat.Libelle == null)
+            {
+                MessageBox.Show("Veuillez remplir le libelle");
+            }
+            else
+            {
+                this.DialogResult = true;
+            }
+            
         }
     }
 }

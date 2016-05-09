@@ -39,25 +39,34 @@ namespace MegaProduction
         private void btn_Ajouter_Domaine_Click(object sender, RoutedEventArgs e)
         {
             domaine = new DomaineMetier();
-            InformationDomaineWindow informationDomaineWindow = new InformationDomaineWindow(db,domaine);
+            InformationDomaineWindow informationDomaineWindow = new InformationDomaineWindow(domaine,db);
 
             if (informationDomaineWindow.ShowDialog() == true)
             {
+                //Ajout du domaine en base de données
                 db.DomaineMetiers.Add(informationDomaineWindow.DomaineMetier);
+                //Ajout du domaine dans la liste
                 this.DomaineMetiers.Add(informationDomaineWindow.DomaineMetier);
+                //Sauvegarde les changements
                 db.SaveChanges();
             }
         }
 
         private void btn_Modifier_Domaine_Click(object sender, RoutedEventArgs e)
         {
-            domaine = listDomaines.SelectedItem as DomaineMetier;
-            int currentIndex = listDomaines.SelectedIndex;
-            InformationDomaineWindow informationDomaineWindow = new InformationDomaineWindow(db,domaine);
-
-            if (informationDomaineWindow.ShowDialog() == true)
+            if (listDomaines.SelectedItem != null)
             {
-                db.SaveChanges();
+                //Prend le domaine sélectionné
+                domaine = listDomaines.SelectedItem as DomaineMetier;
+                //Prend l'index du domaine sélectionné
+                int currentIndex = listDomaines.SelectedIndex;
+                InformationDomaineWindow informationDomaineWindow = new InformationDomaineWindow(domaine,db);
+
+                if (informationDomaineWindow.ShowDialog() == true)
+                {
+                    //Sauvegarde les changements
+                    db.SaveChanges();
+                }
             }
         }
 
@@ -65,12 +74,17 @@ namespace MegaProduction
         {
             if (listDomaines.SelectedItem != null)
             {
+                //Prend le domaine sélectionné
                 domaine = listDomaines.SelectedItem as DomaineMetier;
+                //Prend l'index du domaine sélectionné
                 int currentIndex = listDomaines.SelectedIndex;
+                //Supprime le domaine dans la base de données
                 db.DomaineMetiers.Remove(domaine);
+                //Supprime le domaine dans la liste
                 this.DomaineMetiers.Remove(domaine);
                 listDomaines.SelectedIndex = currentIndex;
                 listDomaines.Focus();
+                //Sauvegarde les changements
                 db.SaveChanges();
             }
         }
@@ -78,29 +92,34 @@ namespace MegaProduction
         private void btn_Ajouter_Metier_Click(object sender, RoutedEventArgs e)
         {
             metier = new Metier();
-            InformationMetierWindow informationMetierWindow = new InformationMetierWindow(db,metier);
+            InformationMetierWindow informationMetierWindow = new InformationMetierWindow(metier,db);
 
             if (informationMetierWindow.ShowDialog() == true)
             {
+                //Ajout du métier en base de données
                 db.Metiers.Add(informationMetierWindow.Metier);
+                //Ajout du métier dans la liste
                 this.Metiers.Add(informationMetierWindow.Metier);
-               
+                //Sauvegarde les changements
                 db.SaveChanges();
             }
         }
 
         private void btn_Modifier_Metier_Click(object sender, RoutedEventArgs e)
         {
-            metier = listMetiers.SelectedItem as Metier;
-            int currentIndex = listMetiers.SelectedIndex;
-            InformationMetierWindow informationMetierWindow = new InformationMetierWindow(db,metier);
-
-            if (informationMetierWindow.ShowDialog() == true)
+            if (listMetiers.SelectedItem != null)
             {
-                db.Metiers.Add(informationMetierWindow.Metier);
-                this.Metiers.Add(informationMetierWindow.Metier);
+                //Prend le métier sélectionné
+                metier = listMetiers.SelectedItem as Metier;
+                //Prend l'index du métier sélectionné
+                int currentIndex = listMetiers.SelectedIndex;
+                InformationMetierWindow informationMetierWindow = new InformationMetierWindow(metier,db);
 
-                db.SaveChanges();
+                if (informationMetierWindow.ShowDialog() == true)
+                {
+                    //Sauvegarde les changements
+                    db.SaveChanges();
+                }
             }
         }
 
@@ -108,12 +127,17 @@ namespace MegaProduction
         {
             if (listMetiers.SelectedItem != null)
             {
-                Metier metier = listMetiers.SelectedItem as Metier;
+                //Prend le métier sélectionné
+                metier = listMetiers.SelectedItem as Metier;
+                //Prend l'index du métier sélectionné
                 int currentIndex = listMetiers.SelectedIndex;
+                //Supprime le métier dans la base de données
                 db.Metiers.Remove(metier);
+                //Supprime le métier dans la liste
                 this.Metiers.Remove(metier);
                 listMetiers.SelectedIndex = currentIndex;
                 listMetiers.Focus();
+                //Sauvegarde les changements
                 db.SaveChanges();
             }
         }

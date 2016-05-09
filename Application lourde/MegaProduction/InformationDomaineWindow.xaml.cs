@@ -20,25 +20,26 @@ namespace MegaProduction
     /// </summary>
     public partial class InformationDomaineWindow : Window
     {
-        private MegaCastingsEntities db;
+        MegaCastingsEntities db = new MegaCastingsEntities();
         public DomaineMetier DomaineMetier { get; set; }
 
-        public InformationDomaineWindow(MegaCastingsEntities context, DomaineMetier domaine)
+        public InformationDomaineWindow(DomaineMetier domaine,MegaCastingsEntities context)
         {
             InitializeComponent();
             db = context;
             this.DomaineMetier = domaine;
-
             this.DataContext = this;
         }
 
         private void BTN_Cancel_Click(object sender, RoutedEventArgs e)
         {
+            //Ferme la fenêtre
             Close();
         }
 
         private void BTN_Ok_Click(object sender, RoutedEventArgs e)
         {
+            //Vérifie les champs obligatoires
             if(this.DomaineMetier.Libelle == null)
             {
                 MessageBox.Show("Veuillez remplir le libelle");

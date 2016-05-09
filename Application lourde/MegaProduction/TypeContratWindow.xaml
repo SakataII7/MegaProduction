@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MegaProduction"
         mc:Ignorable="d"
-        Title="TypeContratWindow" Height="300" Width="450">
+        Title="Type Contrat" Height="300" Width="450"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
+        <!--Menu de manipulation des types de contrats-->
         <Grid Grid.Row="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="33*" ></ColumnDefinition>
@@ -23,6 +25,7 @@
             <Button Padding="5" x:Name="btn_Supprimer" Click="btn_Supprimer_Click" Grid.Column="2">Supprimer</Button>
         </Grid>
 
+        <!--Affichage des types de contrats-->
         <ListBox Grid.Row="1" ItemsSource="{Binding TypeContrats}" x:Name="listTypeContrats">
             <ListBox.ItemTemplate>
                 <DataTemplate>
