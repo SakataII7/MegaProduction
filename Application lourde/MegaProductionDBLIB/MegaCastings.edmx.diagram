@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="56e3b3f22da74c8c886e4f12c1f88590" Name="Diagram1">
-        <EntityTypeShape EntityType="MegaCastingsModel.Client" Width="1.5" PointX="3" PointY="8.25" />
-        <EntityTypeShape EntityType="MegaCastingsModel.Connexion" Width="1.5" PointX="0.75" PointY="10.625" />
-        <EntityTypeShape EntityType="MegaCastingsModel.DomaineMetier" Width="1.5" PointX="0.75" PointY="2.5" />
-        <EntityTypeShape EntityType="MegaCastingsModel.Metier" Width="1.5" PointX="3" PointY="2.375" />
-        <EntityTypeShape EntityType="MegaCastingsModel.Offre" Width="1.5" PointX="5.25" PointY="1" />
-        <EntityTypeShape EntityType="MegaCastingsModel.Pack" Width="1.5" PointX="0.75" PointY="8.125" />
-        <EntityTypeShape EntityType="MegaCastingsModel.TypeContrat" Width="1.5" PointX="3" PointY="5.75" />
-        <AssociationConnector Association="MegaCastingsModel.FK_Client_Connexion" />
-        <AssociationConnector Association="MegaCastingsModel.FK_Client_Pack" />
-        <AssociationConnector Association="MegaCastingsModel.FK_Offre_Client" />
-        <AssociationConnector Association="MegaCastingsModel.FK_Metier_DomaineMetier" />
-        <AssociationConnector Association="MegaCastingsModel.FK_Offre_DomaineMetier" />
-        <AssociationConnector Association="MegaCastingsModel.FK_Offre_Metier" />
-        <AssociationConnector Association="MegaCastingsModel.FK_Offre_TypeContrat" />
+      <Diagram DiagramId="05923f7e2c4245fe910fd9e950817f65" Name="Diagram1">
+        <EntityTypeShape EntityType="MegaCastingsModel.Client" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaCastingsModel.Connexion" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaCastingsModel.DomaineMetier" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaCastingsModel.Metier" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaCastingsModel.Offre" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaCastingsModel.Pack" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaCastingsModel.TypeContrat" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <AssociationConnector Association="MegaCastingsModel.FK_Client_Connexion" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaCastingsModel.FK_Client_Pack" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaCastingsModel.FK_Offre_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaCastingsModel.FK_Metier_DomaineMetier" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaCastingsModel.FK_Offre_DomaineMetier" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaCastingsModel.FK_Offre_Metier" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaCastingsModel.FK_Offre_TypeContrat" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
