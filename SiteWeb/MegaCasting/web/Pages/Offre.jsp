@@ -12,19 +12,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="CSS/bootstrap.min.css">
         <link rel="stylesheet" href="CSS/MegaCSS.css">
-        <title>JSP Page</title>
+        <title>Offre</title>
     </head>
     <body>
         
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">MegaCasting</a>
+                    <a class="navbar-brand" href="accueil">MegaCasting</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                    <li><a href="accueil">Accueil</a></li>
                 </div>
             </div>
         </nav>
@@ -56,12 +55,24 @@
                     <h1 class="fond">Nombre de postes :<%=NbPostes%></h1>
                     <h1 class="fond">Description du poste : <%=DescriptionPoste%></h1>
                     <h1 class="fond">Description du profil : <%=DescriptionProfil%></h1>
+                    <%if(Tel != null){%>
                     <h1 class="fond">Tel : <%=Tel%></h1>
+                    <%}%>
+                    <%if(Email != null){%>
                     <h1 class="fond">Email : <%=Email%></h1>
+                    <%}%>
+                    <%if(TypeContrat != null){%>
                     <h1 class="fond">Type de contrat : <%=TypeContrat%></h1>
+                    <%}%>
+                    <%if(Domaine != null){%>
                     <h1 class="fond">Domaine du métier : <%=Domaine%></h1>
+                    <%}%>
+                    <%if(Metier != null){%>
                     <h1 class="fond">Métier : <%=Metier%></h1>
+                    <%}%>
+                    <%if(Client != null){%>
                     <h1 class="fond">Client : <%=Client%></h1>
+                    <%}%>
                 </div>
         </div>
         <script src="js/bootstrap.min.js"/>

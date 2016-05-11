@@ -195,7 +195,7 @@ public class RSSServlet extends HttpServlet {
 	    final TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	    final Transformer transformer = transformerFactory.newTransformer();
 	    final DOMSource source = new DOMSource(document);
-	    final StreamResult sortie = new StreamResult(new File("D:\\Travail\\BTSIIA2emeAnnee\\PPE\\MegaProduction\\SiteWeb\\MegaCasting\\web\\Pages\\fluxRSS.xml"));
+	    final StreamResult sortie = new StreamResult(new File("C:\\fluxRSS.xml"));
 	
 	    //prologue
 	    transformer.setOutputProperty(OutputKeys.VERSION, "1.0");

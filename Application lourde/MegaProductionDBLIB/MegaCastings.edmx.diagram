@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="05923f7e2c4245fe910fd9e950817f65" Name="Diagram1">
+      <Diagram DiagramId="81bd868b4e57491cbdeff2c2173cd717" Name="Diagram1">
         <EntityTypeShape EntityType="MegaCastingsModel.Client" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MegaCastingsModel.Connexion" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MegaCastingsModel.DomaineMetier" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
